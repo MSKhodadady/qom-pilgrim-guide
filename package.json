@@ -1,0 +1,12 @@
+{
+  "name": "mono-pilgrim-guide",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "sadeq",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
