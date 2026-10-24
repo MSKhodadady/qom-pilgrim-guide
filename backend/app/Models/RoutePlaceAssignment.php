@@ -12,6 +12,13 @@ class RoutePlaceAssignment extends Model
 
     protected $fillable = ['entry_route_id', 'stay_mode_id', 'place_id', 'role', 'notes', 'address', 'sort_order'];
 
+    /**
+     * The model's default attribute values.
+     *
+     * @var array<string, mixed>
+     */
+    protected $attributes = ['sort_order' => 0];
+
     protected $casts = ['entry_route_id' => 'integer', 'stay_mode_id' => 'integer', 'place_id' => 'integer', 'sort_order' => 'integer'];
 
     public function entryRoute(): BelongsTo

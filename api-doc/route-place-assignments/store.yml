@@ -1,0 +1,28 @@
+info:
+  name: store
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{url}}/route-place-assignments"
+  body:
+    type: json
+    data: |-
+      {
+        "entry_route_id": 1,
+        "stay_mode_id": 1,
+        "place_id": 63,
+        "role": "store",
+        "notes": "",
+        "address": "",
+        "sort_order": 0
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

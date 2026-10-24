@@ -1,0 +1,23 @@
+info:
+  name: update
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{url}}/route-place-assignments/{{route_place_assignment_id}}"
+  body:
+    type: json
+    data: |-
+      {
+        "entry_route_id": 1,
+        "stay_mode_id": 2
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

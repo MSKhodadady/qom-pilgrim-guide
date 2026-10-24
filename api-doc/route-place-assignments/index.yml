@@ -1,0 +1,27 @@
+info:
+  name: index
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{url}}/route-place-assignments"
+  params:
+    - name: entry_route
+      value: "1"
+      type: query
+      description: Filter by entry route id or slug.
+      disabled: true
+    - name: stay_mode
+      value: "1"
+      type: query
+      description: Filter by stay mode id or slug.
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
