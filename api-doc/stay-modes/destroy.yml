@@ -1,0 +1,16 @@
+info:
+  name: destroy
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{url}}/stay-modes/{{stay_mode_id}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

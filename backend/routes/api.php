@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\EntryRouteController;
+use App\Http\Controllers\Api\StayModeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,4 +21,5 @@ Route::prefix('auth')->group(function () {
 
 Route::middleware('auth:admin')->group(function () {
     Route::apiResource('entry-routes', EntryRouteController::class);
+    Route::apiResource('stay-modes', StayModeController::class);
 });

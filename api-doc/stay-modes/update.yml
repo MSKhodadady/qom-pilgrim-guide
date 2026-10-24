@@ -1,0 +1,23 @@
+info:
+  name: update
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{url}}/stay-modes/{{stay_mode_id}}"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "",
+        "slug": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
