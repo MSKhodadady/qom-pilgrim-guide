@@ -21,6 +21,7 @@ class RoutePlaceAssignmentFactory extends Factory
             'place_id' => Place::factory(),
             'role' => fake()->randomElement(['parking', 'lodging', 'transport', 'hotel']),
             'notes' => fake()->optional()->sentence(),
+            'address' => fake()->optional()->address(),
             'sort_order' => fake()->numberBetween(1, 20),
         ];
     }

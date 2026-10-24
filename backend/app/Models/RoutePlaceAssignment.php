@@ -10,7 +10,7 @@ class RoutePlaceAssignment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['entry_route_id', 'stay_mode_id', 'place_id', 'role', 'notes', 'sort_order'];
+    protected $fillable = ['entry_route_id', 'stay_mode_id', 'place_id', 'role', 'notes', 'address', 'sort_order'];
 
     protected $casts = ['entry_route_id' => 'integer', 'stay_mode_id' => 'integer', 'place_id' => 'integer', 'sort_order' => 'integer'];
 

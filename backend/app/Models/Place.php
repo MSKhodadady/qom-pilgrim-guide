@@ -16,9 +16,4 @@ class Place extends Model
     {
         return $this->hasMany(RoutePlaceAssignment::class);
     }
-
-    public function accessRoutes(): HasMany
-    {
-        return $this->hasMany(AccessRoute::class, 'destination_place_id');
-    }
 }

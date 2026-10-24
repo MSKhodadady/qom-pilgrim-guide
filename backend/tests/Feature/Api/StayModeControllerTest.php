@@ -23,7 +23,7 @@ describe('index', function () {
         $this->getJson('/api/stay-modes')->assertUnauthorized();
     });
 
-    it('returns stay modes ordered by name', function () {
+    it('returns stay modes ordered by id', function () {
         $tent = StayMode::factory()->create(['name' => 'Tent']);
         $hotel = StayMode::factory()->create(['name' => 'Hotel']);
 
@@ -31,9 +31,9 @@ describe('index', function () {
             ->getJson('/api/stay-modes')
             ->assertOk()
             ->assertJsonCount(2, 'data')
-            ->assertJsonPath('data.0.id', $hotel->id)
-            ->assertJsonPath('data.0.name', 'Hotel')
-            ->assertJsonPath('data.1.id', $tent->id);
+            ->assertJsonPath('data.0.id', $tent->id)
+            ->assertJsonPath('data.0.name', 'Tent')
+            ->assertJsonPath('data.1.id', $hotel->id);
     });
 });
 

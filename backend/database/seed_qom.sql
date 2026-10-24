@@ -70,66 +70,65 @@ INSERT INTO places (id,name,description,created_at,updated_at) VALUES (59,'پا�
 INSERT INTO places (id,name,description,created_at,updated_at) VALUES (60,'هتل قصر شمس (بلوار عمار یاسر)',NULL,'2025-01-01 12:00:00','2025-01-01 12:00:00');
 INSERT INTO places (id,name,description,created_at,updated_at) VALUES (61,'هتل بین‌المللی زهره (بلوار عمار یاسر)',NULL,'2025-01-01 12:00:00','2025-01-01 12:00:00');
 INSERT INTO places (id,name,description,created_at,updated_at) VALUES (62,'هتل آپارتمان فردوس (خیابان عمار یاسر، کوچه ۲۴)',NULL,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (1,1,1,1,'parking',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (2,1,1,2,'parking',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (3,1,1,3,'lodging',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (4,1,1,4,'lodging',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (5,1,1,5,'lodging',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (6,1,1,6,'transport',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (7,1,1,7,'transport',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (8,1,2,9,'hotel',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (9,1,2,10,'hotel',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (10,1,2,11,'hotel',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO access_routes (id,entry_route_id,stay_mode_id,destination_place_id,route_description,sort_order,created_at,updated_at) VALUES (1,1,2,8,'میدان ۷۲ تن → بلوار امام موسی صدر (خاکفرج) → تقاطع پل شهید رجایی → پارکینگ طبقاتی شهید کاظمی یا پارکینگ پل آهنچی',1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (11,2,1,12,'parking',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (12,2,1,13,'parking',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (13,2,1,14,'lodging',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (14,2,1,15,'lodging',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (15,2,1,16,'transport',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (16,2,1,17,'transport',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (17,2,2,19,'hotel',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (18,2,2,20,'hotel',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (19,2,2,21,'hotel',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO access_routes (id,entry_route_id,stay_mode_id,destination_place_id,route_description,sort_order,created_at,updated_at) VALUES (2,2,2,18,'میدان ورودی ساوه → بلوار شهید سلیمانی (کمربندی امام علی) → خروجی میدان امام خمینی → بلوار کارگر → خیابان امام خمینی → پارکینگ زائر (صحن شرقی حرم)',1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (20,3,1,22,'parking',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (21,3,1,23,'parking',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (22,3,1,24,'lodging',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (23,3,1,25,'lodging',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (24,3,1,26,'transport',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (25,3,1,27,'transport',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (26,3,2,29,'hotel',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (27,3,2,30,'hotel',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (28,3,2,31,'hotel',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO access_routes (id,entry_route_id,stay_mode_id,destination_place_id,route_description,sort_order,created_at,updated_at) VALUES (3,3,2,28,'ورودی اراک → بلوار الغدیر یا بلوار امام رضا (رودخانه) → بستر رودخانه (مسیل قمرود) → پارکینگ بستر رودخانه (زیرسطحی پل علیخانی/آهنچی)',1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (29,4,1,32,'parking',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (30,4,1,33,'parking',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (31,4,1,34,'lodging',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (32,4,1,35,'lodging',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (33,4,1,36,'transport',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (34,4,1,37,'transport',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (35,4,2,39,'hotel',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (36,4,2,40,'hotel',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (37,4,2,41,'hotel',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO access_routes (id,entry_route_id,stay_mode_id,destination_place_id,route_description,sort_order,created_at,updated_at) VALUES (4,4,2,38,'بلوار الغدیر → بلوار شهید صدوقی (زنبیل‌آباد) → بلوار نیایش → بلوار شهید منتظری → خیابان ساحلی → پارکینگ طبقاتی صحن فاطمی (بلوار شهید منتظری/ساحلی)',1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (38,5,1,42,'parking',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (39,5,1,43,'parking',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (40,5,1,44,'lodging',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (41,5,1,45,'lodging',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (42,5,1,46,'lodging',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (43,5,1,47,'transport',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (44,5,1,48,'transport',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (45,5,2,50,'hotel',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (46,5,2,51,'hotel',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (47,5,2,52,'hotel',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO access_routes (id,entry_route_id,stay_mode_id,destination_place_id,route_description,sort_order,created_at,updated_at) VALUES (5,5,2,49,'ورودی کاشان → بلوار خلیج فارس → میدان ولیعصر → بلوار شهید کبیری → بلوار پیامبر اعظم (ص) یا خیابان انقلاب (چهارمردان) → پارکینگ شرقی حرم (پارکینگ بزرگ زائر - پیامبر اعظم)',1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (48,6,1,53,'parking',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (49,6,1,54,'parking',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (50,6,1,55,'lodging',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (51,6,1,56,'lodging',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (52,6,1,57,'transport',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (53,6,1,58,'transport',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (54,6,2,60,'hotel',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (55,6,2,61,'hotel',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO route_place_assignments (id,entry_route_id,stay_mode_id,place_id,role,notes,sort_order,created_at,updated_at) VALUES (56,6,2,62,'hotel',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00');
-INSERT INTO access_routes (id,entry_route_id,stay_mode_id,destination_place_id,route_description,sort_order,created_at,updated_at) VALUES (6,6,2,59,'جاده حرم تا حرم → کمربندی شرق (آزادراه امام علی) → ورودی تقاطع عمار یاسر → بلوار شهید نواب صفوی → بلوار عمار یاسر → تونل غدیر → پارکینگ زیرسطحی طبقاتی میدان بزرگ امام خمینی (ره)',1,'2025-01-01 12:00:00','2025-01-01 12:00:00');
+INSERT INTO route_place_assignments (entry_route_id,stay_mode_id,place_id,"role",notes,sort_order,created_at,updated_at,address) VALUES
+	 (1,1,1,'parking',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (1,1,2,'parking',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (1,1,3,'lodging',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (1,1,4,'lodging',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (1,1,5,'lodging',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (1,1,6,'transport',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (1,1,7,'transport',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (1,2,9,'hotel',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (1,2,10,'hotel',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (1,2,11,'hotel',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (2,1,12,'parking',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (2,1,13,'parking',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (2,1,14,'lodging',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (2,1,15,'lodging',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (2,1,16,'transport',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (2,1,17,'transport',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (2,2,19,'hotel',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (2,2,20,'hotel',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (2,2,21,'hotel',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (3,1,22,'parking',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (3,1,23,'parking',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (3,1,24,'lodging',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (3,1,25,'lodging',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (3,1,26,'transport',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (3,1,27,'transport',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (3,2,29,'hotel',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (3,2,30,'hotel',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (3,2,31,'hotel',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (4,1,32,'parking',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (4,1,33,'parking',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (4,1,34,'lodging',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (4,1,35,'lodging',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (4,1,36,'transport',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (4,1,37,'transport',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (4,2,39,'hotel',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (4,2,40,'hotel',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (4,2,41,'hotel',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (5,1,42,'parking',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (5,1,43,'parking',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (5,1,44,'lodging',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (5,1,45,'lodging',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (5,1,46,'lodging',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (5,1,47,'transport',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (5,1,48,'transport',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (5,2,50,'hotel',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (5,2,51,'hotel',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (5,2,52,'hotel',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (6,1,53,'parking',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (6,1,54,'parking',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (6,1,55,'lodging',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (6,1,56,'lodging',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (6,1,57,'transport',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (6,1,58,'transport',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (6,2,60,'hotel',NULL,1,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (6,2,61,'hotel',NULL,2,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (6,2,62,'hotel',NULL,3,'2025-01-01 12:00:00','2025-01-01 12:00:00',NULL),
+	 (1,2,8,'parking',NULL,0,NULL,NULL,'میدان ۷۲ تن → بلوار امام موسی صدر (خاکفرج) → تقاطع پل شهید رجایی → پارکینگ طبقاتی شهید کاظمی یا پارکینگ پل آهنچی'),
+	 (4,2,38,'parking',NULL,0,NULL,NULL,'بلوار الغدیر → بلوار شهید صدوقی (زنبیل‌آباد) → بلوار نیایش → بلوار شهید منتظری → خیابان ساحلی → پارکینگ طبقاتی صحن فاطمی (بلوار شهید منتظری/ساحلی)'),
+	 (5,2,49,'parking',NULL,0,NULL,NULL,'ورودی کاشان → بلوار خلیج فارس → میدان ولیعصر → بلوار شهید کبیری → بلوار پیامبر اعظم (ص) یا خیابان انقلاب (چهارمردان) → پارکینگ شرقی حرم (پارکینگ بزرگ زائر - پیامبر اعظم)'),
+	 (6,2,59,'parking',NULL,0,NULL,NULL,'جاده حرم تا حرم → کمربندی شرق (آزادراه امام علی) → ورودی تقاطع عمار یاسر → بلوار شهید نواب صفوی → بلوار عمار یاسر → تونل غدیر → پارکینگ زیرسطحی طبقاتی میدان بزرگ امام خمینی (ره)');
 COMMIT;
