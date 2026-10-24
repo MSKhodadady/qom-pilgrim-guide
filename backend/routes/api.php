@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\EntryRouteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,4 +16,8 @@ Route::prefix('auth')->group(function () {
     });
 
     Route::middleware('auth:admin')->get('/me', [AuthController::class, 'me']);
+});
+
+Route::middleware('auth:admin')->group(function () {
+    Route::apiResource('entry-routes', EntryRouteController::class);
 });

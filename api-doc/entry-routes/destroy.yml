@@ -1,0 +1,20 @@
+info:
+  name: destroy
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{url}}/entry-routes/:entry_route_id"
+  params:
+    - name: entry_route_id
+      value: "{{entry_route_id}}"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

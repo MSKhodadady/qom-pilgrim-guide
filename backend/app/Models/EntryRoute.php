@@ -12,6 +12,13 @@ class EntryRoute extends Model
 
     protected $fillable = ['name', 'slug', 'sort_order'];
 
+    /**
+     * The model's default attribute values.
+     *
+     * @var array<string, mixed>
+     */
+    protected $attributes = ['sort_order' => 0];
+
     protected $casts = ['sort_order' => 'integer'];
 
     public function assignments(): HasMany

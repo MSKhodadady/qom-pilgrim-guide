@@ -1,0 +1,24 @@
+info:
+  name: store
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{url}}/entry-routes"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "شرق",
+        "slug": "east",
+        "sort_order": 6
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
