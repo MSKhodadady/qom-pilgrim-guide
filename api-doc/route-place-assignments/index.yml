@@ -5,18 +5,16 @@ info:
 
 http:
   method: GET
-  url: "{{url}}/route-place-assignments"
+  url: "{{url}}/route-place-assignments?entry_route=1&stay_mode=1"
   params:
     - name: entry_route
       value: "1"
       type: query
       description: Filter by entry route id or slug.
-      disabled: true
     - name: stay_mode
       value: "1"
       type: query
       description: Filter by stay mode id or slug.
-      disabled: true
   auth: inherit
 
 settings:

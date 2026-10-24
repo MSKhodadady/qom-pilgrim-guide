@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RoutePlaceAssignment\IndexRoutePlaceAssignmentRequest;
 use App\Http\Requests\RoutePlaceAssignment\StoreRoutePlaceAssignmentRequest;
 use App\Http\Requests\RoutePlaceAssignment\UpdateRoutePlaceAssignmentRequest;
 use App\Models\RoutePlaceAssignment;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class RoutePlaceAssignmentController extends Controller
 {
@@ -28,7 +28,7 @@ class RoutePlaceAssignmentController extends Controller
      * List the route place assignments, optionally filtered by entry route
      * and stay mode. Each filter accepts either an id or a slug.
      */
-    public function index(Request $request): JsonResponse
+    public function index(IndexRoutePlaceAssignmentRequest $request): JsonResponse
     {
         $assignments = RoutePlaceAssignment::query()
             ->with(self::RELATIONS)
