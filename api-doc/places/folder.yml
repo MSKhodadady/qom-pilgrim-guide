@@ -1,0 +1,7 @@
+info:
+  name: places
+  type: folder
+  seq: 4
+
+request:
+  auth: inherit
