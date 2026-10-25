@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use App\Auth\JwtGuard;
 use App\Services\JwtService;
+use Dedoc\Scramble\Scramble;
+use Dedoc\Scramble\Support\Generator\OpenApi;
+use Dedoc\Scramble\Support\Generator\SecurityScheme;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +41,13 @@ class AppServiceProvider extends ServiceProvider
             return Limit::perMinute(10)->by(Str::transliterate(
                 Str::lower((string) $request->input('username')).'|'.$request->ip()
             ));
+        });
+        
+
+         Scramble::afterOpenApiGenerated(function (OpenApi $openApi) {
+            $openApi->secure(
+                SecurityScheme::http('bearer', 'JWT')
+            );
         });
     }
 }
