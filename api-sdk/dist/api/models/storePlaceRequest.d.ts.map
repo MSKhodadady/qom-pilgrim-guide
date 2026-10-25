@@ -1,0 +1,1 @@
+{"version":3,"file":"storePlaceRequest.d.ts","sourceRoot":"","sources":["../../../src/api/models/storePlaceRequest.ts"],"names":[],"mappings":"AAAA;;;;;GAKG;AAEH,MAAM,WAAW,iBAAiB;IAChC,qBAAqB;IACrB,IAAI,EAAE,MAAM,CAAC;IACb,gBAAgB;IAChB,WAAW,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;CAC7B"}

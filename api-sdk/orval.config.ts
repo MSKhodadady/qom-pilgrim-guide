@@ -21,4 +21,14 @@ export default defineConfig({
       client: "react-query",
     },
   },
+
+  apiZod: {
+    input: "./api.json",
+    output: {
+      mode: "tags",
+      target: "./src/apiZod",
+      schemas: "./src/apiZod/model",
+      client: "zod",
+    },
+  },
 });
