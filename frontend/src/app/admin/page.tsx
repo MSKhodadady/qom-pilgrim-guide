@@ -5,7 +5,9 @@ import { DataTable } from "@/components/data-table";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getAuthToken } from "@/lib/auth";
+import { fetchWrap } from "@/lib/fetchWrap";
+import { useDialog } from "@/lib/hooks/useDialog";
+import { qkeys } from "@/lib/qkeys";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
 	createColumnHelper,
@@ -19,7 +21,7 @@ import {
 	entryRoutesUpdate,
 } from "api-sdk";
 import type { EntryRoute, StoreEntryRouteRequest } from "api-sdk/models";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
 
 const entryRouteFeatures = tableFeatures({});
 const columnHelper = createColumnHelper<
@@ -27,47 +29,16 @@ const columnHelper = createColumnHelper<
 	EntryRoute
 >();
 const emptyRoutes: EntryRoute[] = [];
-const entryRoutesQueryKey = ["entry-routes"];
-
-function getRequestOptions(): RequestInit {
-	const token = getAuthToken();
-	if (!token) throw new Error("نشست شما منقضی شده است. دوباره وارد شوید.");
-	return { headers: { Authorization: `Bearer ${token}` } };
-}
-
-function getResponseMessage(data: unknown, fallback: string) {
-	if (data && typeof data === "object" && "message" in data) {
-		const message = data.message;
-		if (typeof message === "string") return message;
-	}
-	return fallback;
-}
 
 export default function AdminPage() {
 	const queryClient = useQueryClient();
-	const [isAuthenticated, setIsAuthenticated] = useState(false);
-	const [dialogOpen, setDialogOpen] = useState(false);
-	const [editingRoute, setEditingRoute] = useState<EntryRoute | null>(null);
-
-	useEffect(() => {
-		if (!getAuthToken()) {
-			window.location.href = "/admin/login";
-			return;
-		}
-		setIsAuthenticated(true);
-	}, []);
+	const addEditDialog = useDialog<EntryRoute>();
 
 	const routesQuery = useQuery({
-		queryKey: entryRoutesQueryKey,
-		enabled: isAuthenticated,
+		queryKey: qkeys.entryRoutes,
 		queryFn: async () => {
-			const response = await entryRoutesIndex(getRequestOptions());
-			if (response.status !== 200) {
-				throw new Error(
-					getResponseMessage(response.data, "دریافت مسیرها ناموفق بود."),
-				);
-			}
-			return response.data.data;
+			const response = await fetchWrap(entryRoutesIndex);
+			return response?.status === 200 ? response?.data.data : null;
 		},
 	});
 
@@ -80,59 +51,44 @@ export default function AdminPage() {
 			values: StoreEntryRouteRequest;
 		}) => {
 			if (route) {
-				const response = await entryRoutesUpdate(
-					route.id,
-					values,
-					getRequestOptions(),
+				const response = await fetchWrap((init) =>
+					entryRoutesUpdate(route.id, values, init),
 				);
-				if (response.status !== 200) {
-					throw new Error(
-						getResponseMessage(response.data, "ویرایش مسیر ناموفق بود."),
-					);
-				}
-				return;
-			}
-
-			const response = await entryRoutesStore(values, getRequestOptions());
-			if (response.status !== 201) {
-				throw new Error(
-					getResponseMessage(response.data, "ایجاد مسیر ناموفق بود."),
+				if (response?.status !== 200) alert("ناموفق");
+			} else {
+				const response = await fetchWrap((init) =>
+					entryRoutesStore(values, init),
 				);
+				if (response?.status !== 201) alert("ناموفق");
 			}
 		},
 		onSuccess: async () => {
-			await queryClient.invalidateQueries({ queryKey: entryRoutesQueryKey });
-			setDialogOpen(false);
-			setEditingRoute(null);
+			await queryClient.invalidateQueries({ queryKey: qkeys.entryRoutes });
+			addEditDialog.close();
 		},
 	});
 
 	const deleteMutation = useMutation({
 		mutationFn: async (routeId: number) => {
-			const response = await entryRoutesDestroy(routeId, getRequestOptions());
-			if (response.status !== 204) {
-				throw new Error(
-					getResponseMessage(response.data, "حذف مسیر ناموفق بود."),
-				);
-			}
+			const response = await fetchWrap((init) =>
+				entryRoutesDestroy(routeId, init),
+			);
+			if (response?.status !== 204) alert("ناموفق");
 		},
 		onSuccess: () =>
-			queryClient.invalidateQueries({ queryKey: entryRoutesQueryKey }),
+			queryClient.invalidateQueries({ queryKey: qkeys.entryRoutes }),
 	});
-
-	const openCreateDialog = useCallback(() => {
-		setEditingRoute(null);
-		saveMutation.reset();
-		setDialogOpen(true);
-	}, [saveMutation.reset]);
 
 	const openEditDialog = useCallback(
 		(route: EntryRoute) => {
-			setEditingRoute(route);
 			saveMutation.reset();
-			setDialogOpen(true);
+			//
+			addEditDialog.show(route);
 		},
-		[saveMutation.reset],
+		[
+			saveMutation.reset, //
+			addEditDialog.show,
+		],
 	);
 
 	const deleteRoute = useCallback(
@@ -185,18 +141,28 @@ export default function AdminPage() {
 		data: routesQuery.data ?? emptyRoutes,
 	});
 
-	if (!isAuthenticated) return null;
-
 	return (
 		<main className="mx-auto flex w-full max-w-6xl flex-col gap-6 p-4 sm:p-6">
 			<div className="flex flex-wrap items-center justify-between gap-3">
 				<div>
 					<h1 className="text-2xl font-semibold">مدیریت مسیرهای ورودی</h1>
-					<p className="mt-1 text-sm text-muted-foreground">
-						مسیرهای ورود زائران را مدیریت کنید.
-					</p>
 				</div>
-				<Button onClick={openCreateDialog}>افزودن مسیر</Button>
+				<Button
+					onClick={() => {
+						saveMutation.reset();
+						//
+						addEditDialog.show({
+							name: "",
+							slug: "",
+							id: -1,
+							created_at: "",
+							sort_order: 1,
+							updated_at: "",
+						});
+					}}
+				>
+					افزودن مسیر
+				</Button>
 			</div>
 
 			{routesQuery.isError ? (
@@ -226,16 +192,23 @@ export default function AdminPage() {
 				</CardContent>
 			</Card>
 
-			<EntryRouteDialog
-				open={dialogOpen}
-				route={editingRoute}
-				isPending={saveMutation.isPending}
-				error={saveMutation.error?.message ?? null}
-				onOpenChange={setDialogOpen}
-				onSubmit={(values) =>
-					saveMutation.mutate({ route: editingRoute, values })
-				}
-			/>
+			{addEditDialog.mounted && (
+				<EntryRouteDialog
+					open={addEditDialog.value}
+					isPending={saveMutation.isPending}
+					error={saveMutation.error?.message ?? null}
+					onOpenChange={(v) => {
+						if (!v) addEditDialog.close();
+					}}
+					onSubmit={(values) =>
+						saveMutation.mutate({
+							route:
+								addEditDialog.value?.id === -1 ? null : addEditDialog.value,
+							values,
+						})
+					}
+				/>
+			)}
 		</main>
 	);
 }

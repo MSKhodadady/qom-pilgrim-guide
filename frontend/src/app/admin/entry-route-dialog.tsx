@@ -16,8 +16,7 @@ import type { EntryRoute, StoreEntryRouteRequest } from "api-sdk/models";
 import { type SubmitEvent, useEffect, useState } from "react";
 
 type EntryRouteDialogProps = {
-	open: boolean;
-	route: EntryRoute | null;
+	open: EntryRoute | null;
 	isPending: boolean;
 	error: string | null;
 	onOpenChange: (open: boolean) => void;
@@ -25,23 +24,23 @@ type EntryRouteDialogProps = {
 };
 
 export function EntryRouteDialog({
-	open,
-	route,
+	open: route,
 	isPending,
 	error,
 	onOpenChange,
 	onSubmit,
 }: EntryRouteDialogProps) {
-	const [name, setName] = useState("");
-	const [slug, setSlug] = useState("");
-	const [sortOrder, setSortOrder] = useState("0");
+	const [name, setName] = useState(route?.name ?? "");
+	const [slug, setSlug] = useState(route?.slug ?? "");
+	const [sortOrder, setSortOrder] = useState(String(route?.sort_order ?? "0"));
 
 	useEffect(() => {
-		if (!open) return;
-		setName(route?.name ?? "");
-		setSlug(route?.slug ?? "");
-		setSortOrder(String(route?.sort_order ?? 0));
-	}, [open, route]);
+		if (route != null) {
+			setName(route?.name ?? "");
+			setSlug(route?.slug ?? "");
+			setSortOrder(String(route?.sort_order ?? 0));
+		}
+	}, [route]);
 
 	function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
 		event.preventDefault();
@@ -53,7 +52,7 @@ export function EntryRouteDialog({
 	}
 
 	return (
-		<Dialog open={open} onOpenChange={onOpenChange}>
+		<Dialog open={route != null} onOpenChange={onOpenChange}>
 			<DialogContent>
 				<form className="flex flex-col gap-5" onSubmit={handleSubmit}>
 					<DialogHeader>
