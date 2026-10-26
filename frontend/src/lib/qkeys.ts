@@ -1,3 +1,4 @@
 export const qkeys = {
-	entryRoutes: ["entry-routes"],
+  entryRoutes: ["entry-routes"],
+  places: ["places"],
 };
