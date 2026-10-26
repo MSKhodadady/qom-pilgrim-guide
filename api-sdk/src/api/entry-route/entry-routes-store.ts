@@ -42,7 +42,7 @@ export const getEntryRoutesStoreUrl = () => {
 
 
 
-  return `/entry-routes`
+  return `/api/entry-routes`
 }
 
 /**

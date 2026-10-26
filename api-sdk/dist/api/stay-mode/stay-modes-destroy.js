@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stayModesDestroy = exports.getStayModesDestroyUrl = void 0;
 const getStayModesDestroyUrl = (stayMode) => {
-    return `/stay-modes/${stayMode}`;
+    return `/api/stay-modes/${stayMode}`;
 };
 exports.getStayModesDestroyUrl = getStayModesDestroyUrl;
 /**

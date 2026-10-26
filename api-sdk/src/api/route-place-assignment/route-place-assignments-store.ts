@@ -42,7 +42,7 @@ export const getRoutePlaceAssignmentsStoreUrl = () => {
 
 
 
-  return `/route-place-assignments`
+  return `/api/route-place-assignments`
 }
 
 /**

@@ -40,7 +40,7 @@ export const getPlacesDestroyUrl = (place: number,) => {
 
 
 
-  return `/places/${place}`
+  return `/api/places/${place}`
 }
 
 /**

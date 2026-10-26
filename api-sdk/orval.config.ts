@@ -8,6 +8,7 @@ export default defineConfig({
 			target: "./src/api/api.ts",
 			schemas: "./src/api/models",
 			client: "fetch",
+			baseUrl: "/api/",
 			// baseUrl: {
 			//   runtime: "process.env.API_BASE_URL",
 			// },

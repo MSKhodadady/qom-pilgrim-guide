@@ -23,7 +23,7 @@ export const getGetUrl = () => {
 
 
 
-  return `/`
+  return `/api/`
 }
 
 export const get = async ( options?: RequestInit): Promise<getResponse> => {

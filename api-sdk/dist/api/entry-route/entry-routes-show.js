@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.entryRoutesShow = exports.getEntryRoutesShowUrl = void 0;
 const getEntryRoutesShowUrl = (entryRoute) => {
-    return `/entry-routes/${entryRoute}`;
+    return `/api/entry-routes/${entryRoute}`;
 };
 exports.getEntryRoutesShowUrl = getEntryRoutesShowUrl;
 /**

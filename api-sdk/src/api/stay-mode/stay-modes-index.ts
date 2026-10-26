@@ -35,7 +35,7 @@ export const getStayModesIndexUrl = () => {
 
 
 
-  return `/stay-modes`
+  return `/api/stay-modes`
 }
 
 /**

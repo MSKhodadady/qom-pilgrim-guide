@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.authResetPassword = exports.getAuthResetPasswordUrl = void 0;
 const getAuthResetPasswordUrl = () => {
-    return `/auth/reset-password`;
+    return `/api/auth/reset-password`;
 };
 exports.getAuthResetPasswordUrl = getAuthResetPasswordUrl;
 /**

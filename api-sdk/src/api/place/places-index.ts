@@ -35,7 +35,7 @@ export const getPlacesIndexUrl = () => {
 
 
 
-  return `/places`
+  return `/api/places`
 }
 
 /**

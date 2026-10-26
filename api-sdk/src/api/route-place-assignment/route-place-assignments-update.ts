@@ -48,7 +48,7 @@ export const getRoutePlaceAssignmentsUpdateUrl = (routePlaceAssignment: number,)
 
 
 
-  return `/route-place-assignments/${routePlaceAssignment}`
+  return `/api/route-place-assignments/${routePlaceAssignment}`
 }
 
 /**

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.authRegister = exports.getAuthRegisterUrl = void 0;
 const getAuthRegisterUrl = () => {
-    return `/auth/register`;
+    return `/api/auth/register`;
 };
 exports.getAuthRegisterUrl = getAuthRegisterUrl;
 /**

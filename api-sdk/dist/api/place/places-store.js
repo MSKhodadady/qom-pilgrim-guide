@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.placesStore = exports.getPlacesStoreUrl = void 0;
 const getPlacesStoreUrl = () => {
-    return `/places`;
+    return `/api/places`;
 };
 exports.getPlacesStoreUrl = getPlacesStoreUrl;
 /**

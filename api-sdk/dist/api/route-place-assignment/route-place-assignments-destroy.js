@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.routePlaceAssignmentsDestroy = exports.getRoutePlaceAssignmentsDestroyUrl = void 0;
 const getRoutePlaceAssignmentsDestroyUrl = (routePlaceAssignment) => {
-    return `/route-place-assignments/${routePlaceAssignment}`;
+    return `/api/route-place-assignments/${routePlaceAssignment}`;
 };
 exports.getRoutePlaceAssignmentsDestroyUrl = getRoutePlaceAssignmentsDestroyUrl;
 /**

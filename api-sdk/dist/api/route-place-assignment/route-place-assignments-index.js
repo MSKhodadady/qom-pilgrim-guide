@@ -9,7 +9,7 @@ const getRoutePlaceAssignmentsIndexUrl = (params) => {
         }
     });
     const stringifiedParams = normalizedParams.toString();
-    return stringifiedParams.length > 0 ? `/route-place-assignments?${stringifiedParams}` : `/route-place-assignments`;
+    return stringifiedParams.length > 0 ? `/api/route-place-assignments?${stringifiedParams}` : `/api/route-place-assignments`;
 };
 exports.getRoutePlaceAssignmentsIndexUrl = getRoutePlaceAssignmentsIndexUrl;
 /**

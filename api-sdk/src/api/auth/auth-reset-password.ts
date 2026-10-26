@@ -36,7 +36,7 @@ export const getAuthResetPasswordUrl = () => {
 
 
 
-  return `/auth/reset-password`
+  return `/api/auth/reset-password`
 }
 
 /**

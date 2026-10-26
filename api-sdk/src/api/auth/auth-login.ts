@@ -42,7 +42,7 @@ export const getAuthLoginUrl = () => {
 
 
 
-  return `/auth/login`
+  return `/api/auth/login`
 }
 
 /**

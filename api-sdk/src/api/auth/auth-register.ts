@@ -36,7 +36,7 @@ export const getAuthRegisterUrl = () => {
 
 
 
-  return `/auth/register`
+  return `/api/auth/register`
 }
 
 /**

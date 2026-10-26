@@ -42,7 +42,7 @@ export const getPlacesStoreUrl = () => {
 
 
 
-  return `/places`
+  return `/api/places`
 }
 
 /**

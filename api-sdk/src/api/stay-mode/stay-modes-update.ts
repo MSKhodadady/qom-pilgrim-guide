@@ -48,7 +48,7 @@ export const getStayModesUpdateUrl = (stayMode: number,) => {
 
 
 
-  return `/stay-modes/${stayMode}`
+  return `/api/stay-modes/${stayMode}`
 }
 
 /**

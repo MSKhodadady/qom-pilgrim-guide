@@ -42,7 +42,7 @@ export const getStayModesStoreUrl = () => {
 
 
 
-  return `/stay-modes`
+  return `/api/stay-modes`
 }
 
 /**

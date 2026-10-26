@@ -35,7 +35,7 @@ export const getAuthMeUrl = () => {
 
 
 
-  return `/auth/me`
+  return `/api/auth/me`
 }
 
 /**

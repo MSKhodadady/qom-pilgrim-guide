@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.routePlaceAssignmentsStore = exports.getRoutePlaceAssignmentsStoreUrl = void 0;
 const getRoutePlaceAssignmentsStoreUrl = () => {
-    return `/route-place-assignments`;
+    return `/api/route-place-assignments`;
 };
 exports.getRoutePlaceAssignmentsStoreUrl = getRoutePlaceAssignmentsStoreUrl;
 /**

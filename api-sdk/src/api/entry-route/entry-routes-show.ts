@@ -41,7 +41,7 @@ export const getEntryRoutesShowUrl = (entryRoute: number,) => {
 
 
 
-  return `/entry-routes/${entryRoute}`
+  return `/api/entry-routes/${entryRoute}`
 }
 
 /**

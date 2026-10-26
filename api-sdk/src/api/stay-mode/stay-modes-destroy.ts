@@ -40,7 +40,7 @@ export const getStayModesDestroyUrl = (stayMode: number,) => {
 
 
 
-  return `/stay-modes/${stayMode}`
+  return `/api/stay-modes/${stayMode}`
 }
 
 /**

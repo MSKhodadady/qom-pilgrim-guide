@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.authMe = exports.getAuthMeUrl = void 0;
 const getAuthMeUrl = () => {
-    return `/auth/me`;
+    return `/api/auth/me`;
 };
 exports.getAuthMeUrl = getAuthMeUrl;
 /**

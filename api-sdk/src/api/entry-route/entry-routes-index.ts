@@ -35,7 +35,7 @@ export const getEntryRoutesIndexUrl = () => {
 
 
 
-  return `/entry-routes`
+  return `/api/entry-routes`
 }
 
 /**
