@@ -9,6 +9,8 @@ import { qkeys } from "@/lib/qkeys";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
 	createColumnHelper,
+	createPaginatedRowModel,
+	rowPaginationFeature,
 	tableFeatures,
 	useTable,
 } from "@tanstack/react-table";
@@ -16,7 +18,10 @@ import { placesDestroy, placesIndex, placesStore, placesUpdate } from "api-sdk";
 import type { Place, StorePlaceRequest } from "api-sdk/models";
 import { useCallback, useMemo } from "react";
 
-const placeFeatures = tableFeatures({});
+const placeFeatures = tableFeatures({
+	rowPaginationFeature,
+	paginatedRowModel: createPaginatedRowModel(),
+});
 const placeColumnHelper = createColumnHelper<typeof placeFeatures, Place>();
 const emptyPlaces: Place[] = [];
 
@@ -174,6 +179,7 @@ export function Places() {
 								? "در حال دریافت مکان‌ها..."
 								: "مکانی ثبت نشده است."
 						}
+						pagination={placesTable}
 					/>
 				</CardContent>
 			</Card>
