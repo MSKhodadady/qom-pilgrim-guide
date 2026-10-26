@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+const apiOrigin = process.env.API_ORIGIN ?? "http://localhost:8000";
+
 const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
@@ -12,6 +14,14 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/auth/:path*",
+        destination: `${apiOrigin}/api/auth/:path*`,
+      },
+    ];
   },
 };
 
