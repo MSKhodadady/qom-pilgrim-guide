@@ -1,36 +1,26 @@
 {
-  "name": "api-sdk",
-  "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "main": "main.js",
-  "exports": {
-    ".": {
-      "import": "./dist/api/index.js",
-      "require": "./dist/api/index.js",
-      "types": "./dist/api/index.d.ts"
-    },
-    "./query": {
-      "import": "./dist/apiQuery/index.js",
-      "require": "./dist/apiQuery/index.js",
-      "types": "./dist/apiQuery/index.d.ts"
-    },
-    "./zod": {
-      "import": "./dist/apiZod/index.js",
-      "require": "./dist/apiZod/index.js",
-      "types": "./dist/apiZod/index.d.ts"
-    }
-  },
-  "scripts": {
-    "build": "orval && tsc"
-  },
-  "devDependencies": {
-    "@types/node": "^20.19.43",
-    "orval": "^8.44.0"
-  },
-  "dependencies": {
-    "@tanstack/react-query": "^5.104.5"
-  }
+	"name": "api-sdk",
+	"version": "1.0.0",
+	"description": "",
+	"license": "ISC",
+	"author": "",
+	"type": "commonjs",
+	"main": "main.js",
+	"exports": {
+		".": {
+			"import": "./dist/api/index.js",
+			"require": "./dist/api/index.js",
+			"types": "./dist/api/index.d.ts"
+		}
+	},
+	"scripts": {
+		"build": "orval && tsc"
+	},
+	"devDependencies": {
+		"@types/node": "^20.19.43",
+		"orval": "^8.44.0"
+	},
+	"dependencies": {
+		"@tanstack/react-query": "^5.104.5"
+	}
 }
