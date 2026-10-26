@@ -41,7 +41,7 @@ export const getStayModesShowUrl = (stayMode: number,) => {
 
 
 
-  return `http://localhost:8000/stay-modes/${stayMode}`
+  return `${process.env.API_BASE_URL}/stay-modes/${stayMode}`
 }
 
 /**

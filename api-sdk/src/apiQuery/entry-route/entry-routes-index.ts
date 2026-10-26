@@ -51,7 +51,7 @@ export const getEntryRoutesIndexUrl = () => {
 
 
 
-  return `/entry-routes`
+  return `${process.env.API_BASE_URL}/entry-routes`
 }
 
 /**
@@ -81,7 +81,7 @@ export const entryRoutesIndex = async ( options?: RequestInit): Promise<entryRou
 
 export const getEntryRoutesIndexQueryKey = () => {
     return [
-    `/entry-routes`
+    `${process.env.API_BASE_URL}/entry-routes`
     ] as const;
     }
 

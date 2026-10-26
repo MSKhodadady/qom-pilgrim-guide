@@ -9,11 +9,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.get = exports.getGetUrl = void 0;
 ;
 const getGetUrl = () => {
-    return `http://localhost:8000/`;
+    return `${process.env.API_BASE_URL}/`;
 };
 exports.getGetUrl = getGetUrl;
 const get = async (options) => {
-    const res = await fetch((0, exports.getGetUrl)(), Object.assign(Object.assign({}, options), { method: 'GET' }));
+    const res = await fetch((0, exports.getGetUrl)(), {
+        ...options,
+        method: 'GET'
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };

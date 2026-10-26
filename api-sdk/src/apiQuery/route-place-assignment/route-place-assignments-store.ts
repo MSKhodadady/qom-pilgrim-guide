@@ -52,7 +52,7 @@ export const getRoutePlaceAssignmentsStoreUrl = () => {
 
 
 
-  return `/route-place-assignments`
+  return `${process.env.API_BASE_URL}/route-place-assignments`
 }
 
 /**

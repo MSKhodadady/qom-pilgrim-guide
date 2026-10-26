@@ -9,7 +9,7 @@ exports.useAuthRegister = exports.getAuthRegisterMutationOptions = exports.getAu
  */
 const react_query_1 = require("@tanstack/react-query");
 const getAuthRegisterUrl = () => {
-    return `/auth/register`;
+    return `${process.env.API_BASE_URL}/auth/register`;
 };
 exports.getAuthRegisterUrl = getAuthRegisterUrl;
 /**
@@ -31,7 +31,12 @@ const authRegister = async (registerRequest, options) => {
         }
         return headers;
     };
-    const res = await fetch((0, exports.getAuthRegisterUrl)(), Object.assign(Object.assign({}, options), { method: 'POST', headers: Object.assign({ 'Content-Type': 'application/json' }, getHeaders(options === null || options === void 0 ? void 0 : options.headers)), body: JSON.stringify(registerRequest) }));
+    const res = await fetch((0, exports.getAuthRegisterUrl)(), {
+        ...options,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...getHeaders(options === null || options === void 0 ? void 0 : options.headers) },
+        body: JSON.stringify(registerRequest)
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };
@@ -44,13 +49,13 @@ const getAuthRegisterMutationOptions = (options) => {
     const { mutation: mutationOptions, fetch: fetchOptions } = options ?
         options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
             options
-            : Object.assign(Object.assign({}, options), { mutation: Object.assign(Object.assign({}, options.mutation), { mutationKey }) })
+            : { ...options, mutation: { ...options.mutation, mutationKey } }
         : { mutation: { mutationKey, }, fetch: undefined };
     const mutationFn = (props) => {
         const { data } = props !== null && props !== void 0 ? props : {};
         return (0, exports.authRegister)(data, fetchOptions);
     };
-    return Object.assign({ mutationFn }, mutationOptions);
+    return { mutationFn, ...mutationOptions };
 };
 exports.getAuthRegisterMutationOptions = getAuthRegisterMutationOptions;
 /**

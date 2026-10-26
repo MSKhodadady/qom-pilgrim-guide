@@ -4,7 +4,7 @@
  * Laravel
  * OpenAPI spec version: 0.0.1
  */
-import * as zod from "zod";
+import * as zod from 'zod';
 /**
  * @summary List the route place assignments, optionally filtered by entry route
 and stay mode. Each filter accepts either an id or a slug

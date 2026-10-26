@@ -9,7 +9,7 @@ export type getResponseSuccess = (getResponse200) & {
 export type getResponse = (getResponseSuccess);
 export declare const getGetUrl: () => string;
 export declare const get: (options?: RequestInit) => Promise<getResponse>;
-export declare const getGetQueryKey: () => readonly ["/"];
+export declare const getGetQueryKey: () => readonly [`${string}/`];
 export declare const getGetQueryOptions: <TData = Awaited<ReturnType<typeof get>>, TError = unknown>(options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof get>>, TError, TData>>;
     fetch?: RequestInit;

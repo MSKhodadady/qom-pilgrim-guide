@@ -57,7 +57,7 @@ export const getEntryRoutesShowUrl = (entryRoute: number,) => {
 
 
 
-  return `/entry-routes/${entryRoute}`
+  return `${process.env.API_BASE_URL}/entry-routes/${entryRoute}`
 }
 
 /**
@@ -87,7 +87,7 @@ export const entryRoutesShow = async (entryRoute: number, options?: RequestInit)
 
 export const getEntryRoutesShowQueryKey = (entryRoute: number,) => {
     return [
-    `/entry-routes/${entryRoute}`
+    `${process.env.API_BASE_URL}/entry-routes/${entryRoute}`
     ] as const;
     }
 

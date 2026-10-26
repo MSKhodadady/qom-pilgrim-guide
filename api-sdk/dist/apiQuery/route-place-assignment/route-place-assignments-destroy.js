@@ -9,14 +9,17 @@ exports.useRoutePlaceAssignmentsDestroy = exports.getRoutePlaceAssignmentsDestro
  */
 const react_query_1 = require("@tanstack/react-query");
 const getRoutePlaceAssignmentsDestroyUrl = (routePlaceAssignment) => {
-    return `/route-place-assignments/${routePlaceAssignment}`;
+    return `${process.env.API_BASE_URL}/route-place-assignments/${routePlaceAssignment}`;
 };
 exports.getRoutePlaceAssignmentsDestroyUrl = getRoutePlaceAssignmentsDestroyUrl;
 /**
  * @summary Delete a route place assignment
  */
 const routePlaceAssignmentsDestroy = async (routePlaceAssignment, options) => {
-    const res = await fetch((0, exports.getRoutePlaceAssignmentsDestroyUrl)(routePlaceAssignment), Object.assign(Object.assign({}, options), { method: 'DELETE' }));
+    const res = await fetch((0, exports.getRoutePlaceAssignmentsDestroyUrl)(routePlaceAssignment), {
+        ...options,
+        method: 'DELETE'
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : undefined;
     return { data, status: res.status, headers: res.headers };
@@ -29,13 +32,13 @@ const getRoutePlaceAssignmentsDestroyMutationOptions = (options) => {
     const { mutation: mutationOptions, fetch: fetchOptions } = options ?
         options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
             options
-            : Object.assign(Object.assign({}, options), { mutation: Object.assign(Object.assign({}, options.mutation), { mutationKey }) })
+            : { ...options, mutation: { ...options.mutation, mutationKey } }
         : { mutation: { mutationKey, }, fetch: undefined };
     const mutationFn = (props) => {
         const { routePlaceAssignment } = props !== null && props !== void 0 ? props : {};
         return (0, exports.routePlaceAssignmentsDestroy)(routePlaceAssignment, fetchOptions);
     };
-    return Object.assign({ mutationFn }, mutationOptions);
+    return { mutationFn, ...mutationOptions };
 };
 exports.getRoutePlaceAssignmentsDestroyMutationOptions = getRoutePlaceAssignmentsDestroyMutationOptions;
 /**

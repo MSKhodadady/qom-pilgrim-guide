@@ -51,7 +51,7 @@ export const getPlacesIndexUrl = () => {
 
 
 
-  return `/places`
+  return `${process.env.API_BASE_URL}/places`
 }
 
 /**
@@ -81,7 +81,7 @@ export const placesIndex = async ( options?: RequestInit): Promise<placesIndexRe
 
 export const getPlacesIndexQueryKey = () => {
     return [
-    `/places`
+    `${process.env.API_BASE_URL}/places`
     ] as const;
     }
 

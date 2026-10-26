@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es2019",
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
@@ -10,7 +10,8 @@
     "outDir": "./dist",
     "declaration": true,
     "declarationMap": true,
-    "incremental": true
+    "incremental": true,
+    "types": ["node"]
   },
   "include": ["src"]
 }

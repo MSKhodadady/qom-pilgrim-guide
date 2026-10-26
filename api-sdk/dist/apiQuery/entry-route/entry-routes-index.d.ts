@@ -20,7 +20,7 @@ export declare const getEntryRoutesIndexUrl: () => string;
  * @summary List the entry routes ordered by their configured display order
  */
 export declare const entryRoutesIndex: (options?: RequestInit) => Promise<entryRoutesIndexResponse>;
-export declare const getEntryRoutesIndexQueryKey: () => readonly ["/entry-routes"];
+export declare const getEntryRoutesIndexQueryKey: () => readonly [`${string}/entry-routes`];
 export declare const getEntryRoutesIndexQueryOptions: <TData = Awaited<ReturnType<typeof entryRoutesIndex>>, TError = AuthenticationExceptionResponse>(options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof entryRoutesIndex>>, TError, TData>>;
     fetch?: RequestInit;

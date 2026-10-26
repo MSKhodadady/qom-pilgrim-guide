@@ -52,7 +52,7 @@ export const getEntryRoutesStoreUrl = () => {
 
 
 
-  return `/entry-routes`
+  return `${process.env.API_BASE_URL}/entry-routes`
 }
 
 /**

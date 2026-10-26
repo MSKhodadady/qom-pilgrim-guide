@@ -25,7 +25,7 @@ export declare const getRoutePlaceAssignmentsIndexUrl: (params?: RoutePlaceAssig
 and stay mode. Each filter accepts either an id or a slug
  */
 export declare const routePlaceAssignmentsIndex: (params?: RoutePlaceAssignmentsIndexParams, options?: RequestInit) => Promise<routePlaceAssignmentsIndexResponse>;
-export declare const getRoutePlaceAssignmentsIndexQueryKey: (params?: RoutePlaceAssignmentsIndexParams) => readonly ["/route-place-assignments", ...RoutePlaceAssignmentsIndexParams[]];
+export declare const getRoutePlaceAssignmentsIndexQueryKey: (params?: RoutePlaceAssignmentsIndexParams) => readonly [`${string}/route-place-assignments`, ...RoutePlaceAssignmentsIndexParams[]];
 export declare const getRoutePlaceAssignmentsIndexQueryOptions: <TData = Awaited<ReturnType<typeof routePlaceAssignmentsIndex>>, TError = AuthenticationExceptionResponse | ValidationExceptionResponse>(params?: RoutePlaceAssignmentsIndexParams, options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof routePlaceAssignmentsIndex>>, TError, TData>>;
     fetch?: RequestInit;

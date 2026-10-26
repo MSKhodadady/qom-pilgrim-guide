@@ -9,7 +9,7 @@ exports.useRoutePlaceAssignmentsUpdate = exports.getRoutePlaceAssignmentsUpdateM
  */
 const react_query_1 = require("@tanstack/react-query");
 const getRoutePlaceAssignmentsUpdateUrl = (routePlaceAssignment) => {
-    return `/route-place-assignments/${routePlaceAssignment}`;
+    return `${process.env.API_BASE_URL}/route-place-assignments/${routePlaceAssignment}`;
 };
 exports.getRoutePlaceAssignmentsUpdateUrl = getRoutePlaceAssignmentsUpdateUrl;
 /**
@@ -31,7 +31,12 @@ const routePlaceAssignmentsUpdate = async (routePlaceAssignment, updateRoutePlac
         }
         return headers;
     };
-    const res = await fetch((0, exports.getRoutePlaceAssignmentsUpdateUrl)(routePlaceAssignment), Object.assign(Object.assign({}, options), { method: 'PUT', headers: Object.assign({ 'Content-Type': 'application/json' }, getHeaders(options === null || options === void 0 ? void 0 : options.headers)), body: JSON.stringify(updateRoutePlaceAssignmentRequest) }));
+    const res = await fetch((0, exports.getRoutePlaceAssignmentsUpdateUrl)(routePlaceAssignment), {
+        ...options,
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', ...getHeaders(options === null || options === void 0 ? void 0 : options.headers) },
+        body: JSON.stringify(updateRoutePlaceAssignmentRequest)
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };
@@ -44,13 +49,13 @@ const getRoutePlaceAssignmentsUpdateMutationOptions = (options) => {
     const { mutation: mutationOptions, fetch: fetchOptions } = options ?
         options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
             options
-            : Object.assign(Object.assign({}, options), { mutation: Object.assign(Object.assign({}, options.mutation), { mutationKey }) })
+            : { ...options, mutation: { ...options.mutation, mutationKey } }
         : { mutation: { mutationKey, }, fetch: undefined };
     const mutationFn = (props) => {
         const { routePlaceAssignment, data } = props !== null && props !== void 0 ? props : {};
         return (0, exports.routePlaceAssignmentsUpdate)(routePlaceAssignment, data, fetchOptions);
     };
-    return Object.assign({ mutationFn }, mutationOptions);
+    return { mutationFn, ...mutationOptions };
 };
 exports.getRoutePlaceAssignmentsUpdateMutationOptions = getRoutePlaceAssignmentsUpdateMutationOptions;
 /**

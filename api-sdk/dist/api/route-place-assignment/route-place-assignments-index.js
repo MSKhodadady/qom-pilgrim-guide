@@ -9,7 +9,7 @@ const getRoutePlaceAssignmentsIndexUrl = (params) => {
         }
     });
     const stringifiedParams = normalizedParams.toString();
-    return stringifiedParams.length > 0 ? `http://localhost:8000/route-place-assignments?${stringifiedParams}` : `http://localhost:8000/route-place-assignments`;
+    return stringifiedParams.length > 0 ? `${process.env.API_BASE_URL}/route-place-assignments?${stringifiedParams}` : `${process.env.API_BASE_URL}/route-place-assignments`;
 };
 exports.getRoutePlaceAssignmentsIndexUrl = getRoutePlaceAssignmentsIndexUrl;
 /**
@@ -17,7 +17,10 @@ exports.getRoutePlaceAssignmentsIndexUrl = getRoutePlaceAssignmentsIndexUrl;
 and stay mode. Each filter accepts either an id or a slug
  */
 const routePlaceAssignmentsIndex = async (params, options) => {
-    const res = await fetch((0, exports.getRoutePlaceAssignmentsIndexUrl)(params), Object.assign(Object.assign({}, options), { method: 'GET' }));
+    const res = await fetch((0, exports.getRoutePlaceAssignmentsIndexUrl)(params), {
+        ...options,
+        method: 'GET'
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };

@@ -36,7 +36,7 @@ export const getAuthResetPasswordUrl = () => {
 
 
 
-  return `http://localhost:8000/auth/reset-password`
+  return `${process.env.API_BASE_URL}/auth/reset-password`
 }
 
 /**

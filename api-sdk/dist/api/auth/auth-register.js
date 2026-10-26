@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.authRegister = exports.getAuthRegisterUrl = void 0;
 const getAuthRegisterUrl = () => {
-    return `http://localhost:8000/auth/register`;
+    return `${process.env.API_BASE_URL}/auth/register`;
 };
 exports.getAuthRegisterUrl = getAuthRegisterUrl;
 /**
@@ -24,7 +24,12 @@ const authRegister = async (registerRequest, options) => {
         }
         return headers;
     };
-    const res = await fetch((0, exports.getAuthRegisterUrl)(), Object.assign(Object.assign({}, options), { method: 'POST', headers: Object.assign({ 'Content-Type': 'application/json' }, getHeaders(options === null || options === void 0 ? void 0 : options.headers)), body: JSON.stringify(registerRequest) }));
+    const res = await fetch((0, exports.getAuthRegisterUrl)(), {
+        ...options,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...getHeaders(options === null || options === void 0 ? void 0 : options.headers) },
+        body: JSON.stringify(registerRequest)
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };

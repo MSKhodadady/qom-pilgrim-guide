@@ -9,14 +9,17 @@ exports.useEntryRoutesDestroy = exports.getEntryRoutesDestroyMutationOptions = e
  */
 const react_query_1 = require("@tanstack/react-query");
 const getEntryRoutesDestroyUrl = (entryRoute) => {
-    return `/entry-routes/${entryRoute}`;
+    return `${process.env.API_BASE_URL}/entry-routes/${entryRoute}`;
 };
 exports.getEntryRoutesDestroyUrl = getEntryRoutesDestroyUrl;
 /**
  * @summary Delete an entry route
  */
 const entryRoutesDestroy = async (entryRoute, options) => {
-    const res = await fetch((0, exports.getEntryRoutesDestroyUrl)(entryRoute), Object.assign(Object.assign({}, options), { method: 'DELETE' }));
+    const res = await fetch((0, exports.getEntryRoutesDestroyUrl)(entryRoute), {
+        ...options,
+        method: 'DELETE'
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : undefined;
     return { data, status: res.status, headers: res.headers };
@@ -29,13 +32,13 @@ const getEntryRoutesDestroyMutationOptions = (options) => {
     const { mutation: mutationOptions, fetch: fetchOptions } = options ?
         options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
             options
-            : Object.assign(Object.assign({}, options), { mutation: Object.assign(Object.assign({}, options.mutation), { mutationKey }) })
+            : { ...options, mutation: { ...options.mutation, mutationKey } }
         : { mutation: { mutationKey, }, fetch: undefined };
     const mutationFn = (props) => {
         const { entryRoute } = props !== null && props !== void 0 ? props : {};
         return (0, exports.entryRoutesDestroy)(entryRoute, fetchOptions);
     };
-    return Object.assign({ mutationFn }, mutationOptions);
+    return { mutationFn, ...mutationOptions };
 };
 exports.getEntryRoutesDestroyMutationOptions = getEntryRoutesDestroyMutationOptions;
 /**

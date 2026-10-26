@@ -58,7 +58,7 @@ export const getEntryRoutesUpdateUrl = (entryRoute: number,) => {
 
 
 
-  return `/entry-routes/${entryRoute}`
+  return `${process.env.API_BASE_URL}/entry-routes/${entryRoute}`
 }
 
 /**

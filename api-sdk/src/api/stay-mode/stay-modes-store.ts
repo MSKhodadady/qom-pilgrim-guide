@@ -42,7 +42,7 @@ export const getStayModesStoreUrl = () => {
 
 
 
-  return `http://localhost:8000/stay-modes`
+  return `${process.env.API_BASE_URL}/stay-modes`
 }
 
 /**

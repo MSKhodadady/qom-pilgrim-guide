@@ -57,7 +57,7 @@ export const getRoutePlaceAssignmentsShowUrl = (routePlaceAssignment: number,) =
 
 
 
-  return `/route-place-assignments/${routePlaceAssignment}`
+  return `${process.env.API_BASE_URL}/route-place-assignments/${routePlaceAssignment}`
 }
 
 /**
@@ -87,7 +87,7 @@ export const routePlaceAssignmentsShow = async (routePlaceAssignment: number, op
 
 export const getRoutePlaceAssignmentsShowQueryKey = (routePlaceAssignment: number,) => {
     return [
-    `/route-place-assignments/${routePlaceAssignment}`
+    `${process.env.API_BASE_URL}/route-place-assignments/${routePlaceAssignment}`
     ] as const;
     }
 

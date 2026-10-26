@@ -50,7 +50,7 @@ export const getPlacesDestroyUrl = (place: number,) => {
 
 
 
-  return `/places/${place}`
+  return `${process.env.API_BASE_URL}/places/${place}`
 }
 
 /**

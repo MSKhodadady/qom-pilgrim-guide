@@ -41,7 +41,7 @@ export const getPlacesShowUrl = (place: number,) => {
 
 
 
-  return `http://localhost:8000/places/${place}`
+  return `${process.env.API_BASE_URL}/places/${place}`
 }
 
 /**

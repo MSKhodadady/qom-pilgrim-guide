@@ -51,7 +51,7 @@ export const getStayModesIndexUrl = () => {
 
 
 
-  return `/stay-modes`
+  return `${process.env.API_BASE_URL}/stay-modes`
 }
 
 /**
@@ -81,7 +81,7 @@ export const stayModesIndex = async ( options?: RequestInit): Promise<stayModesI
 
 export const getStayModesIndexQueryKey = () => {
     return [
-    `/stay-modes`
+    `${process.env.API_BASE_URL}/stay-modes`
     ] as const;
     }
 

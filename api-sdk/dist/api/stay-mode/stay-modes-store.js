@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stayModesStore = exports.getStayModesStoreUrl = void 0;
 const getStayModesStoreUrl = () => {
-    return `http://localhost:8000/stay-modes`;
+    return `${process.env.API_BASE_URL}/stay-modes`;
 };
 exports.getStayModesStoreUrl = getStayModesStoreUrl;
 /**
@@ -24,7 +24,12 @@ const stayModesStore = async (storeStayModeRequest, options) => {
         }
         return headers;
     };
-    const res = await fetch((0, exports.getStayModesStoreUrl)(), Object.assign(Object.assign({}, options), { method: 'POST', headers: Object.assign({ 'Content-Type': 'application/json' }, getHeaders(options === null || options === void 0 ? void 0 : options.headers)), body: JSON.stringify(storeStayModeRequest) }));
+    const res = await fetch((0, exports.getStayModesStoreUrl)(), {
+        ...options,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...getHeaders(options === null || options === void 0 ? void 0 : options.headers) },
+        body: JSON.stringify(storeStayModeRequest)
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };

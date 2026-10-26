@@ -11,14 +11,17 @@ exports.useStayModesShow = useStayModesShow;
 const stay_mode_helpers_1 = require("./stay-mode.helpers");
 const react_query_1 = require("@tanstack/react-query");
 const getStayModesShowUrl = (stayMode) => {
-    return `/stay-modes/${stayMode}`;
+    return `${process.env.API_BASE_URL}/stay-modes/${stayMode}`;
 };
 exports.getStayModesShowUrl = getStayModesShowUrl;
 /**
  * @summary Show a single stay mode
  */
 const stayModesShow = async (stayMode, options) => {
-    const res = await fetch((0, exports.getStayModesShowUrl)(stayMode), Object.assign(Object.assign({}, options), { method: 'GET' }));
+    const res = await fetch((0, exports.getStayModesShowUrl)(stayMode), {
+        ...options,
+        method: 'GET'
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };
@@ -26,7 +29,7 @@ const stayModesShow = async (stayMode, options) => {
 exports.stayModesShow = stayModesShow;
 const getStayModesShowQueryKey = (stayMode) => {
     return [
-        `/stay-modes/${stayMode}`
+        `${process.env.API_BASE_URL}/stay-modes/${stayMode}`
     ];
 };
 exports.getStayModesShowQueryKey = getStayModesShowQueryKey;
@@ -34,8 +37,8 @@ const getStayModesShowQueryOptions = (stayMode, options) => {
     var _a;
     const { query: queryOptions, fetch: fetchOptions } = options !== null && options !== void 0 ? options : {};
     const queryKey = (_a = queryOptions === null || queryOptions === void 0 ? void 0 : queryOptions.queryKey) !== null && _a !== void 0 ? _a : (0, exports.getStayModesShowQueryKey)(stayMode);
-    const queryFn = ({ signal }) => (0, exports.stayModesShow)(stayMode, Object.assign({ signal }, fetchOptions));
-    return Object.assign({ queryKey, queryFn, enabled: stayMode !== null && stayMode !== undefined }, queryOptions);
+    const queryFn = ({ signal }) => (0, exports.stayModesShow)(stayMode, { signal, ...fetchOptions });
+    return { queryKey, queryFn, enabled: stayMode !== null && stayMode !== undefined, ...queryOptions };
 };
 exports.getStayModesShowQueryOptions = getStayModesShowQueryOptions;
 /**

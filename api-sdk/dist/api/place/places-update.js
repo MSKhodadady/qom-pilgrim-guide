@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.placesUpdate = exports.getPlacesUpdateUrl = void 0;
 const getPlacesUpdateUrl = (place) => {
-    return `http://localhost:8000/places/${place}`;
+    return `${process.env.API_BASE_URL}/places/${place}`;
 };
 exports.getPlacesUpdateUrl = getPlacesUpdateUrl;
 /**
@@ -24,7 +24,12 @@ const placesUpdate = async (place, updatePlaceRequest, options) => {
         }
         return headers;
     };
-    const res = await fetch((0, exports.getPlacesUpdateUrl)(place), Object.assign(Object.assign({}, options), { method: 'PUT', headers: Object.assign({ 'Content-Type': 'application/json' }, getHeaders(options === null || options === void 0 ? void 0 : options.headers)), body: JSON.stringify(updatePlaceRequest) }));
+    const res = await fetch((0, exports.getPlacesUpdateUrl)(place), {
+        ...options,
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', ...getHeaders(options === null || options === void 0 ? void 0 : options.headers) },
+        body: JSON.stringify(updatePlaceRequest)
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };

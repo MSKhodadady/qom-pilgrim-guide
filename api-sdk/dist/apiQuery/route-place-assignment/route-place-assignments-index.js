@@ -18,7 +18,7 @@ const getRoutePlaceAssignmentsIndexUrl = (params) => {
         }
     });
     const stringifiedParams = normalizedParams.toString();
-    return stringifiedParams.length > 0 ? `/route-place-assignments?${stringifiedParams}` : `/route-place-assignments`;
+    return stringifiedParams.length > 0 ? `${process.env.API_BASE_URL}/route-place-assignments?${stringifiedParams}` : `${process.env.API_BASE_URL}/route-place-assignments`;
 };
 exports.getRoutePlaceAssignmentsIndexUrl = getRoutePlaceAssignmentsIndexUrl;
 /**
@@ -26,7 +26,10 @@ exports.getRoutePlaceAssignmentsIndexUrl = getRoutePlaceAssignmentsIndexUrl;
 and stay mode. Each filter accepts either an id or a slug
  */
 const routePlaceAssignmentsIndex = async (params, options) => {
-    const res = await fetch((0, exports.getRoutePlaceAssignmentsIndexUrl)(params), Object.assign(Object.assign({}, options), { method: 'GET' }));
+    const res = await fetch((0, exports.getRoutePlaceAssignmentsIndexUrl)(params), {
+        ...options,
+        method: 'GET'
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };
@@ -34,7 +37,7 @@ const routePlaceAssignmentsIndex = async (params, options) => {
 exports.routePlaceAssignmentsIndex = routePlaceAssignmentsIndex;
 const getRoutePlaceAssignmentsIndexQueryKey = (params) => {
     return [
-        `/route-place-assignments`, ...(params ? [params] : [])
+        `${process.env.API_BASE_URL}/route-place-assignments`, ...(params ? [params] : [])
     ];
 };
 exports.getRoutePlaceAssignmentsIndexQueryKey = getRoutePlaceAssignmentsIndexQueryKey;
@@ -42,8 +45,8 @@ const getRoutePlaceAssignmentsIndexQueryOptions = (params, options) => {
     var _a;
     const { query: queryOptions, fetch: fetchOptions } = options !== null && options !== void 0 ? options : {};
     const queryKey = (_a = queryOptions === null || queryOptions === void 0 ? void 0 : queryOptions.queryKey) !== null && _a !== void 0 ? _a : (0, exports.getRoutePlaceAssignmentsIndexQueryKey)(params);
-    const queryFn = ({ signal }) => (0, exports.routePlaceAssignmentsIndex)(params, Object.assign({ signal }, fetchOptions));
-    return Object.assign({ queryKey, queryFn }, queryOptions);
+    const queryFn = ({ signal }) => (0, exports.routePlaceAssignmentsIndex)(params, { signal, ...fetchOptions });
+    return { queryKey, queryFn, ...queryOptions };
 };
 exports.getRoutePlaceAssignmentsIndexQueryOptions = getRoutePlaceAssignmentsIndexQueryOptions;
 /**

@@ -57,7 +57,7 @@ export const getStayModesShowUrl = (stayMode: number,) => {
 
 
 
-  return `/stay-modes/${stayMode}`
+  return `${process.env.API_BASE_URL}/stay-modes/${stayMode}`
 }
 
 /**
@@ -87,7 +87,7 @@ export const stayModesShow = async (stayMode: number, options?: RequestInit): Pr
 
 export const getStayModesShowQueryKey = (stayMode: number,) => {
     return [
-    `/stay-modes/${stayMode}`
+    `${process.env.API_BASE_URL}/stay-modes/${stayMode}`
     ] as const;
     }
 

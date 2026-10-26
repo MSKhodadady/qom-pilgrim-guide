@@ -42,7 +42,7 @@ export const getAuthLoginUrl = () => {
 
 
 
-  return `http://localhost:8000/auth/login`
+  return `${process.env.API_BASE_URL}/auth/login`
 }
 
 /**

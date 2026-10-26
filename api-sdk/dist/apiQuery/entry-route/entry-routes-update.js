@@ -9,7 +9,7 @@ exports.useEntryRoutesUpdate = exports.getEntryRoutesUpdateMutationOptions = exp
  */
 const react_query_1 = require("@tanstack/react-query");
 const getEntryRoutesUpdateUrl = (entryRoute) => {
-    return `/entry-routes/${entryRoute}`;
+    return `${process.env.API_BASE_URL}/entry-routes/${entryRoute}`;
 };
 exports.getEntryRoutesUpdateUrl = getEntryRoutesUpdateUrl;
 /**
@@ -31,7 +31,12 @@ const entryRoutesUpdate = async (entryRoute, updateEntryRouteRequest, options) =
         }
         return headers;
     };
-    const res = await fetch((0, exports.getEntryRoutesUpdateUrl)(entryRoute), Object.assign(Object.assign({}, options), { method: 'PUT', headers: Object.assign({ 'Content-Type': 'application/json' }, getHeaders(options === null || options === void 0 ? void 0 : options.headers)), body: JSON.stringify(updateEntryRouteRequest) }));
+    const res = await fetch((0, exports.getEntryRoutesUpdateUrl)(entryRoute), {
+        ...options,
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', ...getHeaders(options === null || options === void 0 ? void 0 : options.headers) },
+        body: JSON.stringify(updateEntryRouteRequest)
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };
@@ -44,13 +49,13 @@ const getEntryRoutesUpdateMutationOptions = (options) => {
     const { mutation: mutationOptions, fetch: fetchOptions } = options ?
         options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
             options
-            : Object.assign(Object.assign({}, options), { mutation: Object.assign(Object.assign({}, options.mutation), { mutationKey }) })
+            : { ...options, mutation: { ...options.mutation, mutationKey } }
         : { mutation: { mutationKey, }, fetch: undefined };
     const mutationFn = (props) => {
         const { entryRoute, data } = props !== null && props !== void 0 ? props : {};
         return (0, exports.entryRoutesUpdate)(entryRoute, data, fetchOptions);
     };
-    return Object.assign({ mutationFn }, mutationOptions);
+    return { mutationFn, ...mutationOptions };
 };
 exports.getEntryRoutesUpdateMutationOptions = getEntryRoutesUpdateMutationOptions;
 /**

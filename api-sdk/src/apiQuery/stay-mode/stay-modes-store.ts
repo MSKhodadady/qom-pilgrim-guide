@@ -52,7 +52,7 @@ export const getStayModesStoreUrl = () => {
 
 
 
-  return `/stay-modes`
+  return `${process.env.API_BASE_URL}/stay-modes`
 }
 
 /**

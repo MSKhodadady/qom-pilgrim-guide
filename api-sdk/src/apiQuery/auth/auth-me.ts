@@ -51,7 +51,7 @@ export const getAuthMeUrl = () => {
 
 
 
-  return `/auth/me`
+  return `${process.env.API_BASE_URL}/auth/me`
 }
 
 /**
@@ -81,7 +81,7 @@ export const authMe = async ( options?: RequestInit): Promise<authMeResponse> =>
 
 export const getAuthMeQueryKey = () => {
     return [
-    `/auth/me`
+    `${process.env.API_BASE_URL}/auth/me`
     ] as const;
     }
 

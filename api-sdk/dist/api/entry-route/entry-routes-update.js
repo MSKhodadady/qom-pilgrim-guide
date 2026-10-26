@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.entryRoutesUpdate = exports.getEntryRoutesUpdateUrl = void 0;
 const getEntryRoutesUpdateUrl = (entryRoute) => {
-    return `http://localhost:8000/entry-routes/${entryRoute}`;
+    return `${process.env.API_BASE_URL}/entry-routes/${entryRoute}`;
 };
 exports.getEntryRoutesUpdateUrl = getEntryRoutesUpdateUrl;
 /**
@@ -24,7 +24,12 @@ const entryRoutesUpdate = async (entryRoute, updateEntryRouteRequest, options) =
         }
         return headers;
     };
-    const res = await fetch((0, exports.getEntryRoutesUpdateUrl)(entryRoute), Object.assign(Object.assign({}, options), { method: 'PUT', headers: Object.assign({ 'Content-Type': 'application/json' }, getHeaders(options === null || options === void 0 ? void 0 : options.headers)), body: JSON.stringify(updateEntryRouteRequest) }));
+    const res = await fetch((0, exports.getEntryRoutesUpdateUrl)(entryRoute), {
+        ...options,
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', ...getHeaders(options === null || options === void 0 ? void 0 : options.headers) },
+        body: JSON.stringify(updateEntryRouteRequest)
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };

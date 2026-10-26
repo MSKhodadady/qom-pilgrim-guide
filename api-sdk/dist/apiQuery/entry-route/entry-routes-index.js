@@ -11,14 +11,17 @@ exports.useEntryRoutesIndex = useEntryRoutesIndex;
 const entry_route_helpers_1 = require("./entry-route.helpers");
 const react_query_1 = require("@tanstack/react-query");
 const getEntryRoutesIndexUrl = () => {
-    return `/entry-routes`;
+    return `${process.env.API_BASE_URL}/entry-routes`;
 };
 exports.getEntryRoutesIndexUrl = getEntryRoutesIndexUrl;
 /**
  * @summary List the entry routes ordered by their configured display order
  */
 const entryRoutesIndex = async (options) => {
-    const res = await fetch((0, exports.getEntryRoutesIndexUrl)(), Object.assign(Object.assign({}, options), { method: 'GET' }));
+    const res = await fetch((0, exports.getEntryRoutesIndexUrl)(), {
+        ...options,
+        method: 'GET'
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };
@@ -26,7 +29,7 @@ const entryRoutesIndex = async (options) => {
 exports.entryRoutesIndex = entryRoutesIndex;
 const getEntryRoutesIndexQueryKey = () => {
     return [
-        `/entry-routes`
+        `${process.env.API_BASE_URL}/entry-routes`
     ];
 };
 exports.getEntryRoutesIndexQueryKey = getEntryRoutesIndexQueryKey;
@@ -34,8 +37,8 @@ const getEntryRoutesIndexQueryOptions = (options) => {
     var _a;
     const { query: queryOptions, fetch: fetchOptions } = options !== null && options !== void 0 ? options : {};
     const queryKey = (_a = queryOptions === null || queryOptions === void 0 ? void 0 : queryOptions.queryKey) !== null && _a !== void 0 ? _a : (0, exports.getEntryRoutesIndexQueryKey)();
-    const queryFn = ({ signal }) => (0, exports.entryRoutesIndex)(Object.assign({ signal }, fetchOptions));
-    return Object.assign({ queryKey, queryFn }, queryOptions);
+    const queryFn = ({ signal }) => (0, exports.entryRoutesIndex)({ signal, ...fetchOptions });
+    return { queryKey, queryFn, ...queryOptions };
 };
 exports.getEntryRoutesIndexQueryOptions = getEntryRoutesIndexQueryOptions;
 /**

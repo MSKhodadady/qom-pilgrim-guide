@@ -12,11 +12,14 @@ const default_helpers_1 = require("./default.helpers");
 const react_query_1 = require("@tanstack/react-query");
 ;
 const getGetUrl = () => {
-    return `/`;
+    return `${process.env.API_BASE_URL}/`;
 };
 exports.getGetUrl = getGetUrl;
 const get = async (options) => {
-    const res = await fetch((0, exports.getGetUrl)(), Object.assign(Object.assign({}, options), { method: 'GET' }));
+    const res = await fetch((0, exports.getGetUrl)(), {
+        ...options,
+        method: 'GET'
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };
@@ -24,7 +27,7 @@ const get = async (options) => {
 exports.get = get;
 const getGetQueryKey = () => {
     return [
-        `/`
+        `${process.env.API_BASE_URL}/`
     ];
 };
 exports.getGetQueryKey = getGetQueryKey;
@@ -32,8 +35,8 @@ const getGetQueryOptions = (options) => {
     var _a;
     const { query: queryOptions, fetch: fetchOptions } = options !== null && options !== void 0 ? options : {};
     const queryKey = (_a = queryOptions === null || queryOptions === void 0 ? void 0 : queryOptions.queryKey) !== null && _a !== void 0 ? _a : (0, exports.getGetQueryKey)();
-    const queryFn = ({ signal }) => (0, exports.get)(Object.assign({ signal }, fetchOptions));
-    return Object.assign({ queryKey, queryFn }, queryOptions);
+    const queryFn = ({ signal }) => (0, exports.get)({ signal, ...fetchOptions });
+    return { queryKey, queryFn, ...queryOptions };
 };
 exports.getGetQueryOptions = getGetQueryOptions;
 function useGet(options, queryClient) {

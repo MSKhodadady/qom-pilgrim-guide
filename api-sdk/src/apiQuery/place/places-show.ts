@@ -57,7 +57,7 @@ export const getPlacesShowUrl = (place: number,) => {
 
 
 
-  return `/places/${place}`
+  return `${process.env.API_BASE_URL}/places/${place}`
 }
 
 /**
@@ -87,7 +87,7 @@ export const placesShow = async (place: number, options?: RequestInit): Promise<
 
 export const getPlacesShowQueryKey = (place: number,) => {
     return [
-    `/places/${place}`
+    `${process.env.API_BASE_URL}/places/${place}`
     ] as const;
     }
 

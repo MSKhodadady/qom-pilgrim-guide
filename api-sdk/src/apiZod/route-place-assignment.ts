@@ -4,7 +4,9 @@
  * Laravel
  * OpenAPI spec version: 0.0.1
  */
-import * as zod from "zod";
+import * as zod from 'zod';
+
+
 
 /**
  * @summary List the route place assignments, optionally filtered by entry route
@@ -14,33 +16,27 @@ export const routePlaceAssignmentsIndexQueryEntryRouteMax = 255;
 
 export const routePlaceAssignmentsIndexQueryStayModeMax = 255;
 
+
+
 export const RoutePlaceAssignmentsIndexQueryParams = zod.object({
-  entry_route: zod
-    .string()
-    .max(routePlaceAssignmentsIndexQueryEntryRouteMax)
-    .nullish(),
-  stay_mode: zod
-    .string()
-    .max(routePlaceAssignmentsIndexQueryStayModeMax)
-    .nullish(),
-});
+  "entry_route": zod.string().max(routePlaceAssignmentsIndexQueryEntryRouteMax).nullish(),
+  "stay_mode": zod.string().max(routePlaceAssignmentsIndexQueryStayModeMax).nullish()
+})
 
 export const RoutePlaceAssignmentsIndexResponse = zod.object({
-  data: zod.array(
-    zod.object({
-      id: zod.int(),
-      entry_route_id: zod.int(),
-      stay_mode_id: zod.int(),
-      place_id: zod.int(),
-      role: zod.string(),
-      notes: zod.string().nullable(),
-      sort_order: zod.int(),
-      created_at: zod.iso.datetime({ offset: true }).nullable(),
-      updated_at: zod.iso.datetime({ offset: true }).nullable(),
-      address: zod.string().nullable(),
-    })
-  ),
-});
+  "data": zod.array(zod.object({
+  "id": zod.int(),
+  "entry_route_id": zod.int(),
+  "stay_mode_id": zod.int(),
+  "place_id": zod.int(),
+  "role": zod.string(),
+  "notes": zod.string().nullable(),
+  "sort_order": zod.int(),
+  "created_at": zod.iso.datetime({"offset":true}).nullable(),
+  "updated_at": zod.iso.datetime({"offset":true}).nullable(),
+  "address": zod.string().nullable()
+}))
+})
 
 /**
  * @summary Create a new route place assignment
@@ -49,100 +45,99 @@ export const routePlaceAssignmentsStoreBodyRoleMax = 255;
 
 export const routePlaceAssignmentsStoreBodySortOrderMin = 0;
 
+
+
 export const RoutePlaceAssignmentsStoreBody = zod.object({
-  entry_route_id: zod.int(),
-  stay_mode_id: zod.int(),
-  place_id: zod.int(),
-  role: zod.string().max(routePlaceAssignmentsStoreBodyRoleMax),
-  notes: zod.string().nullish(),
-  address: zod.string().nullish(),
-  sort_order: zod
-    .int()
-    .min(routePlaceAssignmentsStoreBodySortOrderMin)
-    .optional(),
-});
+  "entry_route_id": zod.int(),
+  "stay_mode_id": zod.int(),
+  "place_id": zod.int(),
+  "role": zod.string().max(routePlaceAssignmentsStoreBodyRoleMax),
+  "notes": zod.string().nullish(),
+  "address": zod.string().nullish(),
+  "sort_order": zod.int().min(routePlaceAssignmentsStoreBodySortOrderMin).optional()
+})
 
 export const RoutePlaceAssignmentsStoreResponse = zod.object({
-  data: zod.object({
-    id: zod.int(),
-    entry_route_id: zod.int(),
-    stay_mode_id: zod.int(),
-    place_id: zod.int(),
-    role: zod.string(),
-    notes: zod.string().nullable(),
-    sort_order: zod.int(),
-    created_at: zod.iso.datetime({ offset: true }).nullable(),
-    updated_at: zod.iso.datetime({ offset: true }).nullable(),
-    address: zod.string().nullable(),
-  }),
-});
+  "data": zod.object({
+  "id": zod.int(),
+  "entry_route_id": zod.int(),
+  "stay_mode_id": zod.int(),
+  "place_id": zod.int(),
+  "role": zod.string(),
+  "notes": zod.string().nullable(),
+  "sort_order": zod.int(),
+  "created_at": zod.iso.datetime({"offset":true}).nullable(),
+  "updated_at": zod.iso.datetime({"offset":true}).nullable(),
+  "address": zod.string().nullable()
+})
+})
 
 /**
  * @summary Show a single route place assignment with its linked records
  */
 export const RoutePlaceAssignmentsShowParams = zod.object({
-  routePlaceAssignment: zod.int().describe("The route place assignment ID"),
-});
+  "routePlaceAssignment": zod.int().describe('The route place assignment ID')
+})
 
 export const RoutePlaceAssignmentsShowResponse = zod.object({
-  data: zod.object({
-    id: zod.int(),
-    entry_route_id: zod.int(),
-    stay_mode_id: zod.int(),
-    place_id: zod.int(),
-    role: zod.string(),
-    notes: zod.string().nullable(),
-    sort_order: zod.int(),
-    created_at: zod.iso.datetime({ offset: true }).nullable(),
-    updated_at: zod.iso.datetime({ offset: true }).nullable(),
-    address: zod.string().nullable(),
-  }),
-});
+  "data": zod.object({
+  "id": zod.int(),
+  "entry_route_id": zod.int(),
+  "stay_mode_id": zod.int(),
+  "place_id": zod.int(),
+  "role": zod.string(),
+  "notes": zod.string().nullable(),
+  "sort_order": zod.int(),
+  "created_at": zod.iso.datetime({"offset":true}).nullable(),
+  "updated_at": zod.iso.datetime({"offset":true}).nullable(),
+  "address": zod.string().nullable()
+})
+})
 
 /**
  * @summary Update an existing route place assignment
  */
 export const RoutePlaceAssignmentsUpdateParams = zod.object({
-  routePlaceAssignment: zod.int().describe("The route place assignment ID"),
-});
+  "routePlaceAssignment": zod.int().describe('The route place assignment ID')
+})
 
 export const routePlaceAssignmentsUpdateBodyRoleMax = 255;
 
 export const routePlaceAssignmentsUpdateBodySortOrderMin = 0;
 
+
+
 export const RoutePlaceAssignmentsUpdateBody = zod.object({
-  entry_route_id: zod.int().optional(),
-  stay_mode_id: zod.int().optional(),
-  place_id: zod.int().optional(),
-  role: zod.string().max(routePlaceAssignmentsUpdateBodyRoleMax),
-  notes: zod.string().nullish(),
-  address: zod.string().nullish(),
-  sort_order: zod
-    .int()
-    .min(routePlaceAssignmentsUpdateBodySortOrderMin)
-    .optional(),
-});
+  "entry_route_id": zod.int().optional(),
+  "stay_mode_id": zod.int().optional(),
+  "place_id": zod.int().optional(),
+  "role": zod.string().max(routePlaceAssignmentsUpdateBodyRoleMax),
+  "notes": zod.string().nullish(),
+  "address": zod.string().nullish(),
+  "sort_order": zod.int().min(routePlaceAssignmentsUpdateBodySortOrderMin).optional()
+})
 
 export const RoutePlaceAssignmentsUpdateResponse = zod.object({
-  data: zod.object({
-    id: zod.int(),
-    entry_route_id: zod.int(),
-    stay_mode_id: zod.int(),
-    place_id: zod.int(),
-    role: zod.string(),
-    notes: zod.string().nullable(),
-    sort_order: zod.int(),
-    created_at: zod.iso.datetime({ offset: true }).nullable(),
-    updated_at: zod.iso.datetime({ offset: true }).nullable(),
-    address: zod.string().nullable(),
-  }),
-});
+  "data": zod.object({
+  "id": zod.int(),
+  "entry_route_id": zod.int(),
+  "stay_mode_id": zod.int(),
+  "place_id": zod.int(),
+  "role": zod.string(),
+  "notes": zod.string().nullable(),
+  "sort_order": zod.int(),
+  "created_at": zod.iso.datetime({"offset":true}).nullable(),
+  "updated_at": zod.iso.datetime({"offset":true}).nullable(),
+  "address": zod.string().nullable()
+})
+})
 
 /**
  * @summary Delete a route place assignment
  */
 export const RoutePlaceAssignmentsDestroyParams = zod.object({
-  routePlaceAssignment: zod.int().describe("The route place assignment ID"),
-});
+  "routePlaceAssignment": zod.int().describe('The route place assignment ID')
+})
 
-export const RoutePlaceAssignmentsDestroyResponse = zod.void();
+export const RoutePlaceAssignmentsDestroyResponse = zod.void()
+

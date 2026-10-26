@@ -9,7 +9,7 @@ exports.useAuthResetPassword = exports.getAuthResetPasswordMutationOptions = exp
  */
 const react_query_1 = require("@tanstack/react-query");
 const getAuthResetPasswordUrl = () => {
-    return `/auth/reset-password`;
+    return `${process.env.API_BASE_URL}/auth/reset-password`;
 };
 exports.getAuthResetPasswordUrl = getAuthResetPasswordUrl;
 /**
@@ -31,7 +31,12 @@ const authResetPassword = async (resetPasswordRequest, options) => {
         }
         return headers;
     };
-    const res = await fetch((0, exports.getAuthResetPasswordUrl)(), Object.assign(Object.assign({}, options), { method: 'POST', headers: Object.assign({ 'Content-Type': 'application/json' }, getHeaders(options === null || options === void 0 ? void 0 : options.headers)), body: JSON.stringify(resetPasswordRequest) }));
+    const res = await fetch((0, exports.getAuthResetPasswordUrl)(), {
+        ...options,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...getHeaders(options === null || options === void 0 ? void 0 : options.headers) },
+        body: JSON.stringify(resetPasswordRequest)
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };
@@ -44,13 +49,13 @@ const getAuthResetPasswordMutationOptions = (options) => {
     const { mutation: mutationOptions, fetch: fetchOptions } = options ?
         options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
             options
-            : Object.assign(Object.assign({}, options), { mutation: Object.assign(Object.assign({}, options.mutation), { mutationKey }) })
+            : { ...options, mutation: { ...options.mutation, mutationKey } }
         : { mutation: { mutationKey, }, fetch: undefined };
     const mutationFn = (props) => {
         const { data } = props !== null && props !== void 0 ? props : {};
         return (0, exports.authResetPassword)(data, fetchOptions);
     };
-    return Object.assign({ mutationFn }, mutationOptions);
+    return { mutationFn, ...mutationOptions };
 };
 exports.getAuthResetPasswordMutationOptions = getAuthResetPasswordMutationOptions;
 /**

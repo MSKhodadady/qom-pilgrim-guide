@@ -23,7 +23,7 @@ export const getGetUrl = () => {
 
 
 
-  return `http://localhost:8000/`
+  return `${process.env.API_BASE_URL}/`
 }
 
 export const get = async ( options?: RequestInit): Promise<getResponse> => {

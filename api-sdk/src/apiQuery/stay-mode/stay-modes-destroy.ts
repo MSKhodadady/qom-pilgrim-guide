@@ -50,7 +50,7 @@ export const getStayModesDestroyUrl = (stayMode: number,) => {
 
 
 
-  return `/stay-modes/${stayMode}`
+  return `${process.env.API_BASE_URL}/stay-modes/${stayMode}`
 }
 
 /**

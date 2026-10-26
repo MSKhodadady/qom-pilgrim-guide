@@ -11,14 +11,17 @@ exports.useRoutePlaceAssignmentsShow = useRoutePlaceAssignmentsShow;
 const route_place_assignment_helpers_1 = require("./route-place-assignment.helpers");
 const react_query_1 = require("@tanstack/react-query");
 const getRoutePlaceAssignmentsShowUrl = (routePlaceAssignment) => {
-    return `/route-place-assignments/${routePlaceAssignment}`;
+    return `${process.env.API_BASE_URL}/route-place-assignments/${routePlaceAssignment}`;
 };
 exports.getRoutePlaceAssignmentsShowUrl = getRoutePlaceAssignmentsShowUrl;
 /**
  * @summary Show a single route place assignment with its linked records
  */
 const routePlaceAssignmentsShow = async (routePlaceAssignment, options) => {
-    const res = await fetch((0, exports.getRoutePlaceAssignmentsShowUrl)(routePlaceAssignment), Object.assign(Object.assign({}, options), { method: 'GET' }));
+    const res = await fetch((0, exports.getRoutePlaceAssignmentsShowUrl)(routePlaceAssignment), {
+        ...options,
+        method: 'GET'
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };
@@ -26,7 +29,7 @@ const routePlaceAssignmentsShow = async (routePlaceAssignment, options) => {
 exports.routePlaceAssignmentsShow = routePlaceAssignmentsShow;
 const getRoutePlaceAssignmentsShowQueryKey = (routePlaceAssignment) => {
     return [
-        `/route-place-assignments/${routePlaceAssignment}`
+        `${process.env.API_BASE_URL}/route-place-assignments/${routePlaceAssignment}`
     ];
 };
 exports.getRoutePlaceAssignmentsShowQueryKey = getRoutePlaceAssignmentsShowQueryKey;
@@ -34,8 +37,8 @@ const getRoutePlaceAssignmentsShowQueryOptions = (routePlaceAssignment, options)
     var _a;
     const { query: queryOptions, fetch: fetchOptions } = options !== null && options !== void 0 ? options : {};
     const queryKey = (_a = queryOptions === null || queryOptions === void 0 ? void 0 : queryOptions.queryKey) !== null && _a !== void 0 ? _a : (0, exports.getRoutePlaceAssignmentsShowQueryKey)(routePlaceAssignment);
-    const queryFn = ({ signal }) => (0, exports.routePlaceAssignmentsShow)(routePlaceAssignment, Object.assign({ signal }, fetchOptions));
-    return Object.assign({ queryKey, queryFn, enabled: routePlaceAssignment !== null && routePlaceAssignment !== undefined }, queryOptions);
+    const queryFn = ({ signal }) => (0, exports.routePlaceAssignmentsShow)(routePlaceAssignment, { signal, ...fetchOptions });
+    return { queryKey, queryFn, enabled: routePlaceAssignment !== null && routePlaceAssignment !== undefined, ...queryOptions };
 };
 exports.getRoutePlaceAssignmentsShowQueryOptions = getRoutePlaceAssignmentsShowQueryOptions;
 /**

@@ -50,7 +50,7 @@ export const getRoutePlaceAssignmentsDestroyUrl = (routePlaceAssignment: number,
 
 
 
-  return `/route-place-assignments/${routePlaceAssignment}`
+  return `${process.env.API_BASE_URL}/route-place-assignments/${routePlaceAssignment}`
 }
 
 /**

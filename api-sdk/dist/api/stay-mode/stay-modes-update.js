@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stayModesUpdate = exports.getStayModesUpdateUrl = void 0;
 const getStayModesUpdateUrl = (stayMode) => {
-    return `http://localhost:8000/stay-modes/${stayMode}`;
+    return `${process.env.API_BASE_URL}/stay-modes/${stayMode}`;
 };
 exports.getStayModesUpdateUrl = getStayModesUpdateUrl;
 /**
@@ -24,7 +24,12 @@ const stayModesUpdate = async (stayMode, updateStayModeRequest, options) => {
         }
         return headers;
     };
-    const res = await fetch((0, exports.getStayModesUpdateUrl)(stayMode), Object.assign(Object.assign({}, options), { method: 'PUT', headers: Object.assign({ 'Content-Type': 'application/json' }, getHeaders(options === null || options === void 0 ? void 0 : options.headers)), body: JSON.stringify(updateStayModeRequest) }));
+    const res = await fetch((0, exports.getStayModesUpdateUrl)(stayMode), {
+        ...options,
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', ...getHeaders(options === null || options === void 0 ? void 0 : options.headers) },
+        body: JSON.stringify(updateStayModeRequest)
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };

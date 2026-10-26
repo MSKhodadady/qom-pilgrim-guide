@@ -65,7 +65,7 @@ export const getRoutePlaceAssignmentsIndexUrl = (params?: RoutePlaceAssignmentsI
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `/route-place-assignments?${stringifiedParams}` : `/route-place-assignments`
+  return stringifiedParams.length > 0 ? `${process.env.API_BASE_URL}/route-place-assignments?${stringifiedParams}` : `${process.env.API_BASE_URL}/route-place-assignments`
 }
 
 /**
@@ -96,7 +96,7 @@ export const routePlaceAssignmentsIndex = async (params?: RoutePlaceAssignmentsI
 
 export const getRoutePlaceAssignmentsIndexQueryKey = (params?: RoutePlaceAssignmentsIndexParams,) => {
     return [
-    `/route-place-assignments`, ...(params ? [params] : [])
+    `${process.env.API_BASE_URL}/route-place-assignments`, ...(params ? [params] : [])
     ] as const;
     }
 

@@ -20,7 +20,7 @@ export declare const getPlacesIndexUrl: () => string;
  * @summary List the places in a stable order
  */
 export declare const placesIndex: (options?: RequestInit) => Promise<placesIndexResponse>;
-export declare const getPlacesIndexQueryKey: () => readonly ["/places"];
+export declare const getPlacesIndexQueryKey: () => readonly [`${string}/places`];
 export declare const getPlacesIndexQueryOptions: <TData = Awaited<ReturnType<typeof placesIndex>>, TError = AuthenticationExceptionResponse>(options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof placesIndex>>, TError, TData>>;
     fetch?: RequestInit;

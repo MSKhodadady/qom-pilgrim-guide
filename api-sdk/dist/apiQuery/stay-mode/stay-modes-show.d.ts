@@ -24,7 +24,7 @@ export declare const getStayModesShowUrl: (stayMode: number) => string;
  * @summary Show a single stay mode
  */
 export declare const stayModesShow: (stayMode: number, options?: RequestInit) => Promise<stayModesShowResponse>;
-export declare const getStayModesShowQueryKey: (stayMode: number) => readonly [`/stay-modes/${number}`];
+export declare const getStayModesShowQueryKey: (stayMode: number) => readonly [`undefined/stay-modes/${number}` | `${string}/stay-modes/${number}`];
 export declare const getStayModesShowQueryOptions: <TData = Awaited<ReturnType<typeof stayModesShow>>, TError = AuthenticationExceptionResponse | ModelNotFoundExceptionResponse>(stayMode: number, options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof stayModesShow>>, TError, TData>>;
     fetch?: RequestInit;

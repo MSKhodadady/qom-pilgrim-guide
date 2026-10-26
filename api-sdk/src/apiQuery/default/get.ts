@@ -39,7 +39,7 @@ export const getGetUrl = () => {
 
 
 
-  return `/`
+  return `${process.env.API_BASE_URL}/`
 }
 
 export const get = async ( options?: RequestInit): Promise<getResponse> => {
@@ -66,7 +66,7 @@ export const get = async ( options?: RequestInit): Promise<getResponse> => {
 
 export const getGetQueryKey = () => {
     return [
-    `/`
+    `${process.env.API_BASE_URL}/`
     ] as const;
     }
 

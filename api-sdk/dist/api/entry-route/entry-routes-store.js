@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.entryRoutesStore = exports.getEntryRoutesStoreUrl = void 0;
 const getEntryRoutesStoreUrl = () => {
-    return `http://localhost:8000/entry-routes`;
+    return `${process.env.API_BASE_URL}/entry-routes`;
 };
 exports.getEntryRoutesStoreUrl = getEntryRoutesStoreUrl;
 /**
@@ -24,7 +24,12 @@ const entryRoutesStore = async (storeEntryRouteRequest, options) => {
         }
         return headers;
     };
-    const res = await fetch((0, exports.getEntryRoutesStoreUrl)(), Object.assign(Object.assign({}, options), { method: 'POST', headers: Object.assign({ 'Content-Type': 'application/json' }, getHeaders(options === null || options === void 0 ? void 0 : options.headers)), body: JSON.stringify(storeEntryRouteRequest) }));
+    const res = await fetch((0, exports.getEntryRoutesStoreUrl)(), {
+        ...options,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...getHeaders(options === null || options === void 0 ? void 0 : options.headers) },
+        body: JSON.stringify(storeEntryRouteRequest)
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };

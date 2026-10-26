@@ -11,14 +11,17 @@ exports.usePlacesIndex = usePlacesIndex;
 const place_helpers_1 = require("./place.helpers");
 const react_query_1 = require("@tanstack/react-query");
 const getPlacesIndexUrl = () => {
-    return `/places`;
+    return `${process.env.API_BASE_URL}/places`;
 };
 exports.getPlacesIndexUrl = getPlacesIndexUrl;
 /**
  * @summary List the places in a stable order
  */
 const placesIndex = async (options) => {
-    const res = await fetch((0, exports.getPlacesIndexUrl)(), Object.assign(Object.assign({}, options), { method: 'GET' }));
+    const res = await fetch((0, exports.getPlacesIndexUrl)(), {
+        ...options,
+        method: 'GET'
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };
@@ -26,7 +29,7 @@ const placesIndex = async (options) => {
 exports.placesIndex = placesIndex;
 const getPlacesIndexQueryKey = () => {
     return [
-        `/places`
+        `${process.env.API_BASE_URL}/places`
     ];
 };
 exports.getPlacesIndexQueryKey = getPlacesIndexQueryKey;
@@ -34,8 +37,8 @@ const getPlacesIndexQueryOptions = (options) => {
     var _a;
     const { query: queryOptions, fetch: fetchOptions } = options !== null && options !== void 0 ? options : {};
     const queryKey = (_a = queryOptions === null || queryOptions === void 0 ? void 0 : queryOptions.queryKey) !== null && _a !== void 0 ? _a : (0, exports.getPlacesIndexQueryKey)();
-    const queryFn = ({ signal }) => (0, exports.placesIndex)(Object.assign({ signal }, fetchOptions));
-    return Object.assign({ queryKey, queryFn }, queryOptions);
+    const queryFn = ({ signal }) => (0, exports.placesIndex)({ signal, ...fetchOptions });
+    return { queryKey, queryFn, ...queryOptions };
 };
 exports.getPlacesIndexQueryOptions = getPlacesIndexQueryOptions;
 /**

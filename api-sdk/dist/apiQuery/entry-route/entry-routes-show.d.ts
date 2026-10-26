@@ -24,7 +24,7 @@ export declare const getEntryRoutesShowUrl: (entryRoute: number) => string;
  * @summary Show a single entry route
  */
 export declare const entryRoutesShow: (entryRoute: number, options?: RequestInit) => Promise<entryRoutesShowResponse>;
-export declare const getEntryRoutesShowQueryKey: (entryRoute: number) => readonly [`/entry-routes/${number}`];
+export declare const getEntryRoutesShowQueryKey: (entryRoute: number) => readonly [`undefined/entry-routes/${number}` | `${string}/entry-routes/${number}`];
 export declare const getEntryRoutesShowQueryOptions: <TData = Awaited<ReturnType<typeof entryRoutesShow>>, TError = AuthenticationExceptionResponse | ModelNotFoundExceptionResponse>(entryRoute: number, options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof entryRoutesShow>>, TError, TData>>;
     fetch?: RequestInit;

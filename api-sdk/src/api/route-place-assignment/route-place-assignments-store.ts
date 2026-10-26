@@ -42,7 +42,7 @@ export const getRoutePlaceAssignmentsStoreUrl = () => {
 
 
 
-  return `http://localhost:8000/route-place-assignments`
+  return `${process.env.API_BASE_URL}/route-place-assignments`
 }
 
 /**

@@ -41,7 +41,7 @@ export const getEntryRoutesShowUrl = (entryRoute: number,) => {
 
 
 
-  return `http://localhost:8000/entry-routes/${entryRoute}`
+  return `${process.env.API_BASE_URL}/entry-routes/${entryRoute}`
 }
 
 /**

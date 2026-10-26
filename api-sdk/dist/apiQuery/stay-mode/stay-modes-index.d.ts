@@ -20,7 +20,7 @@ export declare const getStayModesIndexUrl: () => string;
  * @summary List the stay modes in a stable order
  */
 export declare const stayModesIndex: (options?: RequestInit) => Promise<stayModesIndexResponse>;
-export declare const getStayModesIndexQueryKey: () => readonly ["/stay-modes"];
+export declare const getStayModesIndexQueryKey: () => readonly [`${string}/stay-modes`];
 export declare const getStayModesIndexQueryOptions: <TData = Awaited<ReturnType<typeof stayModesIndex>>, TError = AuthenticationExceptionResponse>(options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof stayModesIndex>>, TError, TData>>;
     fetch?: RequestInit;

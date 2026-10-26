@@ -24,7 +24,7 @@ export declare const getPlacesShowUrl: (place: number) => string;
  * @summary Show a single place
  */
 export declare const placesShow: (place: number, options?: RequestInit) => Promise<placesShowResponse>;
-export declare const getPlacesShowQueryKey: (place: number) => readonly [`/places/${number}`];
+export declare const getPlacesShowQueryKey: (place: number) => readonly [`undefined/places/${number}` | `${string}/places/${number}`];
 export declare const getPlacesShowQueryOptions: <TData = Awaited<ReturnType<typeof placesShow>>, TError = AuthenticationExceptionResponse | ModelNotFoundExceptionResponse>(place: number, options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof placesShow>>, TError, TData>>;
     fetch?: RequestInit;

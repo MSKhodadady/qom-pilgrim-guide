@@ -8,7 +8,9 @@ export default defineConfig({
       target: "./src/api/api.ts",
       schemas: "./src/api/models",
       client: "fetch",
-      baseUrl: "http://localhost:8000",
+      baseUrl: {
+        runtime: "process.env.API_BASE_URL",
+      },
       //   mock: true,
     },
   },
@@ -19,6 +21,9 @@ export default defineConfig({
       target: "./src/apiQuery/apiQuery.ts",
       schemas: "./src/apiQuery/model",
       client: "react-query",
+      baseUrl: {
+        runtime: "process.env.API_BASE_URL",
+      },
     },
   },
 
@@ -29,6 +34,9 @@ export default defineConfig({
       target: "./src/apiZod",
       schemas: "./src/apiZod/model",
       client: "zod",
+      baseUrl: {
+        runtime: "process.env.API_BASE_URL",
+      },
     },
   },
 });

@@ -24,7 +24,7 @@ export declare const getRoutePlaceAssignmentsShowUrl: (routePlaceAssignment: num
  * @summary Show a single route place assignment with its linked records
  */
 export declare const routePlaceAssignmentsShow: (routePlaceAssignment: number, options?: RequestInit) => Promise<routePlaceAssignmentsShowResponse>;
-export declare const getRoutePlaceAssignmentsShowQueryKey: (routePlaceAssignment: number) => readonly [`/route-place-assignments/${number}`];
+export declare const getRoutePlaceAssignmentsShowQueryKey: (routePlaceAssignment: number) => readonly [`undefined/route-place-assignments/${number}` | `${string}/route-place-assignments/${number}`];
 export declare const getRoutePlaceAssignmentsShowQueryOptions: <TData = Awaited<ReturnType<typeof routePlaceAssignmentsShow>>, TError = AuthenticationExceptionResponse | ModelNotFoundExceptionResponse>(routePlaceAssignment: number, options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof routePlaceAssignmentsShow>>, TError, TData>>;
     fetch?: RequestInit;

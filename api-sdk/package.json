@@ -24,9 +24,10 @@
     }
   },
   "scripts": {
-    "build": "oval && tsc"
+    "build": "orval && tsc"
   },
   "devDependencies": {
+    "@types/node": "^20.19.43",
     "orval": "^8.44.0"
   },
   "dependencies": {

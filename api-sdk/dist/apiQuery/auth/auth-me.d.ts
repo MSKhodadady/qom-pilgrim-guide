@@ -20,7 +20,7 @@ export declare const getAuthMeUrl: () => string;
  * @summary Return the currently authenticated admin
  */
 export declare const authMe: (options?: RequestInit) => Promise<authMeResponse>;
-export declare const getAuthMeQueryKey: () => readonly ["/auth/me"];
+export declare const getAuthMeQueryKey: () => readonly [`${string}/auth/me`];
 export declare const getAuthMeQueryOptions: <TData = Awaited<ReturnType<typeof authMe>>, TError = AuthenticationExceptionResponse>(options?: {
     query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof authMe>>, TError, TData>>;
     fetch?: RequestInit;

@@ -11,14 +11,17 @@ exports.useAuthMe = useAuthMe;
 const auth_helpers_1 = require("./auth.helpers");
 const react_query_1 = require("@tanstack/react-query");
 const getAuthMeUrl = () => {
-    return `/auth/me`;
+    return `${process.env.API_BASE_URL}/auth/me`;
 };
 exports.getAuthMeUrl = getAuthMeUrl;
 /**
  * @summary Return the currently authenticated admin
  */
 const authMe = async (options) => {
-    const res = await fetch((0, exports.getAuthMeUrl)(), Object.assign(Object.assign({}, options), { method: 'GET' }));
+    const res = await fetch((0, exports.getAuthMeUrl)(), {
+        ...options,
+        method: 'GET'
+    });
     const body = [204, 205, 304].includes(res.status) ? null : await res.text();
     const data = body ? JSON.parse(body) : {};
     return { data, status: res.status, headers: res.headers };
@@ -26,7 +29,7 @@ const authMe = async (options) => {
 exports.authMe = authMe;
 const getAuthMeQueryKey = () => {
     return [
-        `/auth/me`
+        `${process.env.API_BASE_URL}/auth/me`
     ];
 };
 exports.getAuthMeQueryKey = getAuthMeQueryKey;
@@ -34,8 +37,8 @@ const getAuthMeQueryOptions = (options) => {
     var _a;
     const { query: queryOptions, fetch: fetchOptions } = options !== null && options !== void 0 ? options : {};
     const queryKey = (_a = queryOptions === null || queryOptions === void 0 ? void 0 : queryOptions.queryKey) !== null && _a !== void 0 ? _a : (0, exports.getAuthMeQueryKey)();
-    const queryFn = ({ signal }) => (0, exports.authMe)(Object.assign({ signal }, fetchOptions));
-    return Object.assign({ queryKey, queryFn }, queryOptions);
+    const queryFn = ({ signal }) => (0, exports.authMe)({ signal, ...fetchOptions });
+    return { queryKey, queryFn, ...queryOptions };
 };
 exports.getAuthMeQueryOptions = getAuthMeQueryOptions;
 /**

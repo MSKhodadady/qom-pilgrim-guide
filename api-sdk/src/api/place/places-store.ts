@@ -42,7 +42,7 @@ export const getPlacesStoreUrl = () => {
 
 
 
-  return `http://localhost:8000/places`
+  return `${process.env.API_BASE_URL}/places`
 }
 
 /**
