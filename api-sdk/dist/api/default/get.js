@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.get = exports.getGetUrl = void 0;
 ;
 const getGetUrl = () => {
-    return `${process.env.API_BASE_URL}/`;
+    return `/`;
 };
 exports.getGetUrl = getGetUrl;
 const get = async (options) => {

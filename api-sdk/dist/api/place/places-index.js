@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.placesIndex = exports.getPlacesIndexUrl = void 0;
 const getPlacesIndexUrl = () => {
-    return `${process.env.API_BASE_URL}/places`;
+    return `/places`;
 };
 exports.getPlacesIndexUrl = getPlacesIndexUrl;
 /**

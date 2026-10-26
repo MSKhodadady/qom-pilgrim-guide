@@ -35,7 +35,7 @@ export const getAuthMeUrl = () => {
 
 
 
-  return `${process.env.API_BASE_URL}/auth/me`
+  return `/auth/me`
 }
 
 /**

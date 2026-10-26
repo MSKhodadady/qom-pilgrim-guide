@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.entryRoutesDestroy = exports.getEntryRoutesDestroyUrl = void 0;
 const getEntryRoutesDestroyUrl = (entryRoute) => {
-    return `${process.env.API_BASE_URL}/entry-routes/${entryRoute}`;
+    return `/entry-routes/${entryRoute}`;
 };
 exports.getEntryRoutesDestroyUrl = getEntryRoutesDestroyUrl;
 /**

@@ -41,7 +41,7 @@ export const getRoutePlaceAssignmentsShowUrl = (routePlaceAssignment: number,) =
 
 
 
-  return `${process.env.API_BASE_URL}/route-place-assignments/${routePlaceAssignment}`
+  return `/route-place-assignments/${routePlaceAssignment}`
 }
 
 /**

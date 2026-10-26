@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.placesStore = exports.getPlacesStoreUrl = void 0;
 const getPlacesStoreUrl = () => {
-    return `${process.env.API_BASE_URL}/places`;
+    return `/places`;
 };
 exports.getPlacesStoreUrl = getPlacesStoreUrl;
 /**

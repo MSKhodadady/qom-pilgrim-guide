@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.routePlaceAssignmentsStore = exports.getRoutePlaceAssignmentsStoreUrl = void 0;
 const getRoutePlaceAssignmentsStoreUrl = () => {
-    return `${process.env.API_BASE_URL}/route-place-assignments`;
+    return `/route-place-assignments`;
 };
 exports.getRoutePlaceAssignmentsStoreUrl = getRoutePlaceAssignmentsStoreUrl;
 /**

@@ -42,7 +42,7 @@ export const getPlacesStoreUrl = () => {
 
 
 
-  return `${process.env.API_BASE_URL}/places`
+  return `/places`
 }
 
 /**

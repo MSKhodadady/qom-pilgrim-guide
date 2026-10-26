@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.entryRoutesIndex = exports.getEntryRoutesIndexUrl = void 0;
 const getEntryRoutesIndexUrl = () => {
-    return `${process.env.API_BASE_URL}/entry-routes`;
+    return `/entry-routes`;
 };
 exports.getEntryRoutesIndexUrl = getEntryRoutesIndexUrl;
 /**

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stayModesShow = exports.getStayModesShowUrl = void 0;
 const getStayModesShowUrl = (stayMode) => {
-    return `${process.env.API_BASE_URL}/stay-modes/${stayMode}`;
+    return `/stay-modes/${stayMode}`;
 };
 exports.getStayModesShowUrl = getStayModesShowUrl;
 /**

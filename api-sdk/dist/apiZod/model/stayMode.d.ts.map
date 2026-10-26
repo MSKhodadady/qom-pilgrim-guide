@@ -1,1 +1,0 @@
-{"version":3,"file":"stayMode.d.ts","sourceRoot":"","sources":["../../../src/apiZod/model/stayMode.ts"],"names":[],"mappings":"AAAA;;;;;GAKG;AAEH,MAAM,WAAW,QAAQ;IACvB,EAAE,EAAE,MAAM,CAAC;IACX,IAAI,EAAE,MAAM,CAAC;IACb,IAAI,EAAE,MAAM,CAAC;IACb,gBAAgB;IAChB,UAAU,EAAE,MAAM,GAAG,IAAI,CAAC;IAC1B,gBAAgB;IAChB,UAAU,EAAE,MAAM,GAAG,IAAI,CAAC;CAC3B"}

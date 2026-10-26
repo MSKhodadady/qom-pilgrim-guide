@@ -1,7 +1,8 @@
 {
-  "cSpell.words": ["Hugeicons"],
-  "[javascript][typescript][javascriptreact][typescriptreact][html][css][tailwindcss]": {
-    "editor.maxTokenizationLineLength": 2500,
-    "editor.defaultFormatter": "biomejs.biome"
-  }
+	"cSpell.words": ["Hugeicons"],
+	"[javascript][typescript][javascriptreact][typescriptreact][html][css][tailwindcss][json][jsonc]": {
+		"editor.maxTokenizationLineLength": 2500,
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.formatOnSave": true
+	}
 }

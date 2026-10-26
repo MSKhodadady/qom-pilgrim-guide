@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.placesDestroy = exports.getPlacesDestroyUrl = void 0;
 const getPlacesDestroyUrl = (place) => {
-    return `${process.env.API_BASE_URL}/places/${place}`;
+    return `/places/${place}`;
 };
 exports.getPlacesDestroyUrl = getPlacesDestroyUrl;
 /**

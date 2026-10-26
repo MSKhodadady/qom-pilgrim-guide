@@ -42,7 +42,7 @@ export const getAuthLoginUrl = () => {
 
 
 
-  return `${process.env.API_BASE_URL}/auth/login`
+  return `/auth/login`
 }
 
 /**

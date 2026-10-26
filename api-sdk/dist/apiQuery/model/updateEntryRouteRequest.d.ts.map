@@ -1,1 +1,0 @@
-{"version":3,"file":"updateEntryRouteRequest.d.ts","sourceRoot":"","sources":["../../../src/apiQuery/model/updateEntryRouteRequest.ts"],"names":[],"mappings":"AAAA;;;;;GAKG;AAEH,MAAM,WAAW,uBAAuB;IACtC,qBAAqB;IACrB,IAAI,CAAC,EAAE,MAAM,CAAC;IACd,qBAAqB;IACrB,IAAI,CAAC,EAAE,MAAM,CAAC;IACd,iBAAiB;IACjB,UAAU,CAAC,EAAE,MAAM,CAAC;CACrB"}

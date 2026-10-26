@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.authResetPassword = exports.getAuthResetPasswordUrl = void 0;
 const getAuthResetPasswordUrl = () => {
-    return `${process.env.API_BASE_URL}/auth/reset-password`;
+    return `/auth/reset-password`;
 };
 exports.getAuthResetPasswordUrl = getAuthResetPasswordUrl;
 /**

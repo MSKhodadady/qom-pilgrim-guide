@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stayModesDestroy = exports.getStayModesDestroyUrl = void 0;
 const getStayModesDestroyUrl = (stayMode) => {
-    return `${process.env.API_BASE_URL}/stay-modes/${stayMode}`;
+    return `/stay-modes/${stayMode}`;
 };
 exports.getStayModesDestroyUrl = getStayModesDestroyUrl;
 /**

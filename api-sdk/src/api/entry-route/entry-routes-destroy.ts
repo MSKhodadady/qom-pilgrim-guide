@@ -40,7 +40,7 @@ export const getEntryRoutesDestroyUrl = (entryRoute: number,) => {
 
 
 
-  return `${process.env.API_BASE_URL}/entry-routes/${entryRoute}`
+  return `/entry-routes/${entryRoute}`
 }
 
 /**

@@ -35,7 +35,7 @@ export const getEntryRoutesIndexUrl = () => {
 
 
 
-  return `${process.env.API_BASE_URL}/entry-routes`
+  return `/entry-routes`
 }
 
 /**

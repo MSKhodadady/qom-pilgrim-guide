@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.authLogin = exports.getAuthLoginUrl = void 0;
 const getAuthLoginUrl = () => {
-    return `${process.env.API_BASE_URL}/auth/login`;
+    return `/auth/login`;
 };
 exports.getAuthLoginUrl = getAuthLoginUrl;
 /**

@@ -23,7 +23,7 @@ export const getGetUrl = () => {
 
 
 
-  return `${process.env.API_BASE_URL}/`
+  return `/`
 }
 
 export const get = async ( options?: RequestInit): Promise<getResponse> => {
