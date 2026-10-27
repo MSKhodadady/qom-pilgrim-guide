@@ -21,7 +21,7 @@ import type {
   StoreRoutePlaceAssignmentRequest,
 } from "api-sdk/models";
 import { useCallback, useMemo } from "react";
-import { RoutePlaceAssignmentDialog } from "@/app/admin/route-place-assignment-dialog";
+import { RoutePlaceAssignmentDialog } from "@/app/admin/route-place-assignments/RoutePlaceAssignmentDialog";
 import { DataTable } from "@/components/data-table";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";

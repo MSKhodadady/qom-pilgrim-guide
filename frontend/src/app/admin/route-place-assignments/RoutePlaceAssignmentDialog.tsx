@@ -185,10 +185,10 @@ export function RoutePlaceAssignmentDialog({
               />
               <Combobox.Portal>
                 <Combobox.Positioner
-                  className="z-[60] outline-none"
+                  className="z-60 outline-none"
                   sideOffset={4}
                 >
-                  <Combobox.Popup className="w-[var(--anchor-width)] max-w-[var(--available-width)] rounded-md border bg-popover text-popover-foreground shadow-md">
+                  <Combobox.Popup className="w-(--anchor-width) max-w-(--available-width) rounded-md border bg-popover text-popover-foreground shadow-md">
                     <Combobox.Empty className="px-3 py-2 text-sm text-muted-foreground">
                       مکانی پیدا نشد.
                     </Combobox.Empty>

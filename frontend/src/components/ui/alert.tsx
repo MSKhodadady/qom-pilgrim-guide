@@ -65,7 +65,7 @@ function AlertAction({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="alert-action"
-      className={cn("absolute top-1.5 end-2", className)}
+      className={cn("absolute top-1.5 inset-e-2", className)}
       {...props}
     />
   );

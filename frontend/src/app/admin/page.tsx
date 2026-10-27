@@ -2,10 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import { clearAuthToken } from "@/lib/auth";
-import { EntryRoutes } from "./EntryRoutes";
-import { Places } from "./Places";
-import { RoutePlaceAssignments } from "./RoutePlaceAssignments";
-import { StayModes } from "./StayModes";
+import { EntryRoutes } from "./entry-routes/EntryRoutes";
+import { Places } from "./places/Places";
+import { RoutePlaceAssignments } from "./route-place-assignments/RoutePlaceAssignments";
+import { StayModes } from "./stay-modes/StayModes";
 
 export default function AdminPage() {
   return (

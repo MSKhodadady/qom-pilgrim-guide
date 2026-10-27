@@ -9,7 +9,7 @@ import {
 import { placesDestroy, placesIndex, placesStore, placesUpdate } from "api-sdk";
 import type { Place, StorePlaceRequest } from "api-sdk/models";
 import { useCallback, useMemo } from "react";
-import { PlaceDialog } from "@/app/admin/place-dialog";
+import { PlaceDialog } from "@/app/admin/places/PlaceDialog";
 import { DataTable } from "@/components/data-table";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";

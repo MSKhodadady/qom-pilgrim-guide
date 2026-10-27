@@ -12,7 +12,7 @@ import {
 } from "api-sdk";
 import type { StayMode, StoreStayModeRequest } from "api-sdk/models";
 import { useCallback, useMemo } from "react";
-import { StayModeDialog } from "@/app/admin/stay-mode-dialog";
+import { StayModeDialog } from "@/app/admin/stay-modes/StayModeDialog";
 import { DataTable } from "@/components/data-table";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";

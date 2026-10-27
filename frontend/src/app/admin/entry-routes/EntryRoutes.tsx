@@ -12,7 +12,7 @@ import {
 } from "api-sdk";
 import type { EntryRoute, StoreEntryRouteRequest } from "api-sdk/models";
 import { useCallback, useMemo } from "react";
-import { EntryRouteDialog } from "@/app/admin/entry-route-dialog";
+import { EntryRouteDialog } from "@/app/admin/entry-routes/EntryRouteDialog";
 import { DataTable } from "@/components/data-table";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
