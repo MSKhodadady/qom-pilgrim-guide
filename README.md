@@ -60,6 +60,8 @@ For generating api sdk and using api functions, after each change in backend cod
 npm run build --workspace api-sdk
 ```
 
+**IMPORTANT NOTE:** you only need to run this command _if you changed the backend code_.
+
 ## Frontend
 
 ### Development
