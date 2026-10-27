@@ -6,6 +6,7 @@ import type {
   StayMode,
 } from "api-sdk/models";
 import Link from "next/link";
+import { Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Item,
@@ -13,6 +14,7 @@ import {
   ItemDescription,
   ItemTitle,
 } from "@/components/ui/item";
+import { Spinner } from "@/components/ui/spinner";
 import { placeAssignmentTypes } from "@/lib/placeAssignmentTypes";
 
 type RoutePlaceAssignmentFull = RoutePlaceAssignment & {
@@ -22,6 +24,16 @@ type RoutePlaceAssignmentFull = RoutePlaceAssignment & {
 };
 
 export default async function EntryRoutePage(P: {
+  params: Promise<{ entry: string; stay: string }>;
+}) {
+  return (
+    <Suspense fallback={<Spinner />}>
+      <EntryRouteRender params={P.params} />
+    </Suspense>
+  );
+}
+
+export async function EntryRouteRender(P: {
   params: Promise<{ entry: string; stay: string }>;
 }) {
   const { entry, stay } = await P.params;

@@ -3,6 +3,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { cn } from "cn";
 
 function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
+  const { strokeWidth, ...other } = props;
   return (
     <HugeiconsIcon
       icon={Loading03Icon}
@@ -11,7 +12,7 @@ function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
       role="status"
       aria-label="Loading"
       className={cn("size-4 animate-spin", className)}
-      {...props}
+      {...other}
     />
   );
 }
