@@ -1,8 +1,12 @@
 {
-	"cSpell.words": ["Hugeicons", "qkeys"],
-	"[javascript][typescript][javascriptreact][typescriptreact][html][css][tailwindcss][json][jsonc]": {
-		"editor.maxTokenizationLineLength": 2500,
-		"editor.defaultFormatter": "biomejs.biome",
-		"editor.formatOnSave": true
-	}
+      "cSpell.words": ["Hugeicons", "qkeys"],
+      "[javascript][typescript][javascriptreact][typescriptreact][html][css][tailwindcss][json][jsonc]": {
+            "editor.maxTokenizationLineLength": 2500,
+            "editor.defaultFormatter": "biomejs.biome",
+            "editor.formatOnSave": true,
+            "editor.codeActionsOnSave": {
+                  "source.organizeImports.biome": "always",
+                  "source.organizeImports": "never"
+            }
+      }
 }
