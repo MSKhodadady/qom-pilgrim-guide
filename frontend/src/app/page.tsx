@@ -1,4 +1,5 @@
-import { entryRoutesIndex } from "api-sdk/api-with-base";
+import { entryRoutesIndex, stayModesIndex } from "api-sdk/api-with-base";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Item,
@@ -7,41 +8,74 @@ import {
   ItemTitle,
 } from "@/components/ui/item";
 
-export default async function MainPage() {
-  const entryRoutes = await entryRoutesIndex();
+export default async function MainPage(P: {
+  searchParams: Promise<{ entry: string | string[] | undefined }>;
+}) {
+  const entryRoutesReq = await entryRoutesIndex();
+  const stayModeReq = await stayModesIndex();
 
-  if (entryRoutes.status != 200) throw new Error("entry-points-fetch-err");
+  if (entryRoutesReq.status != 200 || stayModeReq.status != 200)
+    throw new Error("entry-points-fetch-err");
 
-  const d = entryRoutes.data.data;
+  const entryRoutes = entryRoutesReq.data.data;
+  const stayModes = stayModeReq.data.data;
+
+  const { entry } = await P.searchParams;
 
   return (
-    <>
-      <h1 className="flex justify-between items-center border rounded-xl border-slate-300 p-4 w-full">
-        <span>شهرداری قم</span>
-        <span>سامانه راهنمایی زائر</span>
-      </h1>
-
-      <h3>
-        زائر عزیز، لطفا از میان گزینه‌های زیر، انتخاب کنید که از کدام سمت وارد
-        شهر مقدس قم شده اید:
-      </h3>
-      <div className="flex w-full max-w-md flex-col gap-6">
-        {d.map((i) => (
-          <Item variant="outline" key={i.id}>
-            <ItemContent>
-              <ItemTitle>{i.name}</ItemTitle>
-              {/* <ItemDescription>
+    <div className="flex w-full max-w-md flex-col gap-6">
+      {entry == undefined ? (
+        <>
+          <h3>
+            زائر عزیز، لطفا از میان گزینه‌های زیر، انتخاب کنید که از کدام سمت
+            وارد شهر مقدس قم شده اید:
+          </h3>
+          {entryRoutes.map((i) => (
+            <Item variant="outline" key={i.id}>
+              <ItemContent>
+                <ItemTitle>{i.name}</ItemTitle>
+                {/* <ItemDescription>
                 A simple item with title and description.
               </ItemDescription> */}
-            </ItemContent>
-            <ItemActions>
-              <Button variant="outline" size="lg">
-                انتخاب
-              </Button>
-            </ItemActions>
-          </Item>
-        ))}
-      </div>
-    </>
+              </ItemContent>
+              <ItemActions>
+                <Link href={`/?entry=${i.slug}`}>
+                  <Button variant="outline" size="lg">
+                    انتخاب
+                  </Button>
+                </Link>
+              </ItemActions>
+            </Item>
+          ))}
+        </>
+      ) : (
+        <>
+          <h3 className="flex justify-between items-center">
+            <span>لطفا نحوه اقامت خود را وارد نمایید:</span>
+
+            <Link href={"/"}>
+              <Button size={"sm"}>برگشت</Button>
+            </Link>
+          </h3>
+          {stayModes.map((i) => (
+            <Item variant="outline" key={i.id}>
+              <ItemContent>
+                <ItemTitle>{i.name}</ItemTitle>
+                {/* <ItemDescription>
+                A simple item with title and description.
+              </ItemDescription> */}
+              </ItemContent>
+              <ItemActions>
+                <Link href={`/${entry}/${i.slug}`}>
+                  <Button variant="outline" size="lg">
+                    انتخاب
+                  </Button>
+                </Link>
+              </ItemActions>
+            </Item>
+          ))}
+        </>
+      )}
+    </div>
   );
 }
