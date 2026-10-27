@@ -52,11 +52,13 @@ export default async function EntryRoutePage(P: {
 
   return (
     <div className="w-full flex flex-col gap-6 items-center">
-      <h1 className="flex justify-between items-center border rounded-xl border-slate-300 p-4 w-full">
+      <h1 className="flex justify-between items-center border rounded-xl border-slate-300 p-4 w-full text-xl">
         <span>لیست محل های مرتبط</span>
 
         <Link href={"/"}>
-          <Button size={"sm"}>بازگشت</Button>
+          <Button className={"text-lg"} variant={"outline"}>
+            برگشت
+          </Button>
         </Link>
       </h1>
       {roleGrouped.map(([k, v]) => (
@@ -64,13 +66,17 @@ export default async function EntryRoutePage(P: {
           key={k}
           className="w-full max-w-2xl flex flex-col gap-3 items-center"
         >
-          <h1 className="w-full text-start font-bold">{k}</h1>
+          <h1 className="w-full text-start font-bold text-xl">{k}</h1>
 
           {v.map((i) => (
             <Item variant="outline" key={i.id} className="w-full">
               <ItemContent>
-                <ItemTitle>{i.place.name}</ItemTitle>
-                {i.address && <ItemDescription>{i.address}</ItemDescription>}
+                <ItemTitle className="text-lg">{i.place.name}</ItemTitle>
+                {i.address && (
+                  <ItemDescription className="text-lg">
+                    {i.address}
+                  </ItemDescription>
+                )}
               </ItemContent>
               {/* <ItemActions>
                   <Link href={`/?entry=${i.slug}`}>

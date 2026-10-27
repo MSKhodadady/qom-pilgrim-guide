@@ -26,21 +26,18 @@ export default async function MainPage(P: {
     <div className="flex w-full max-w-md flex-col gap-6">
       {entry == undefined ? (
         <>
-          <h3>
+          <h3 className="text-xl">
             زائر عزیز، لطفا از میان گزینه‌های زیر، انتخاب کنید که از کدام سمت
             وارد شهر مقدس قم شده اید:
           </h3>
           {entryRoutes.map((i) => (
             <Item variant="outline" key={i.id}>
               <ItemContent>
-                <ItemTitle>{i.name}</ItemTitle>
-                {/* <ItemDescription>
-                A simple item with title and description.
-              </ItemDescription> */}
+                <ItemTitle className="text-lg">{i.name}</ItemTitle>
               </ItemContent>
               <ItemActions>
                 <Link href={`/?entry=${i.slug}`}>
-                  <Button variant="outline" size="lg">
+                  <Button variant="default" size="lg" className="text-lg">
                     انتخاب
                   </Button>
                 </Link>
@@ -50,24 +47,23 @@ export default async function MainPage(P: {
         </>
       ) : (
         <>
-          <h3 className="flex justify-between items-center">
+          <h3 className="flex justify-between items-center text-xl">
             <span>لطفا نحوه اقامت خود را وارد نمایید:</span>
 
             <Link href={"/"}>
-              <Button size={"sm"}>برگشت</Button>
+              <Button className={"text-lg"} variant={"outline"}>
+                برگشت
+              </Button>
             </Link>
           </h3>
           {stayModes.map((i) => (
             <Item variant="outline" key={i.id}>
               <ItemContent>
-                <ItemTitle>{i.name}</ItemTitle>
-                {/* <ItemDescription>
-                A simple item with title and description.
-              </ItemDescription> */}
+                <ItemTitle className="text-lg">{i.name}</ItemTitle>
               </ItemContent>
               <ItemActions>
                 <Link href={`/${entry}/${i.slug}`}>
-                  <Button variant="outline" size="lg">
+                  <Button size="lg" className="text-lg">
                     انتخاب
                   </Button>
                 </Link>
