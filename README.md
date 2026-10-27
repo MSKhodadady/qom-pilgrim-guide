@@ -39,6 +39,20 @@ DB_CONNECTION=sqlite
 `php artisan serve`
 
 
+## Api OpenApi doc
+You can access api open api doc at  `http://<baseurl>/docs/api`. If `baseurl` is default so: [http://localhost:8000/docs/api](http://localhost:8000/docs/api).
+
+## Creating first **Admin** (IMPORTANT)
+
+**After starting api server**, you can create first admin user by:
+1. Calling `/api/auth/register` manually and passing `ADMIN_SECRET_KEY` from `.env` to `secret_key` field.
+2. Using prepared script by easily running this commands:
+```bash
+cd backend
+./create_admin.sh
+```
+
+
 ## Api Sdk
 
 For generating api sdk and using api functions, after each change in backend codes, run this command in main directory:
@@ -59,6 +73,11 @@ Or you can run both backend and frontend _just for developing frontend_ by this 
 ```bash
 npm run dev-front
 ```
+
+
+## **Admin** panel
+
+Go to [localhost:3000/admin](http://localhost:3000/admin).
 
 
 # Build project and run in production
