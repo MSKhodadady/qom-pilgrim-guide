@@ -1,0 +1,1 @@
+{"version":3,"file":"storeEntryRouteRequest.d.ts","sourceRoot":"","sources":["../../../src/api-with-base/models/storeEntryRouteRequest.ts"],"names":[],"mappings":"AAAA;;;;;GAKG;AAEH,MAAM,WAAW,sBAAsB;IACrC,qBAAqB;IACrB,IAAI,EAAE,MAAM,CAAC;IACb,qBAAqB;IACrB,IAAI,EAAE,MAAM,CAAC;IACb,iBAAiB;IACjB,UAAU,CAAC,EAAE,MAAM,CAAC;CACrB"}

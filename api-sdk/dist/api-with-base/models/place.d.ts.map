@@ -1,0 +1,1 @@
+{"version":3,"file":"place.d.ts","sourceRoot":"","sources":["../../../src/api-with-base/models/place.ts"],"names":[],"mappings":"AAAA;;;;;GAKG;AAEH,MAAM,WAAW,KAAK;IACpB,EAAE,EAAE,MAAM,CAAC;IACX,IAAI,EAAE,MAAM,CAAC;IACb,gBAAgB;IAChB,WAAW,EAAE,MAAM,GAAG,IAAI,CAAC;IAC3B,gBAAgB;IAChB,UAAU,EAAE,MAAM,GAAG,IAAI,CAAC;IAC1B,gBAAgB;IAChB,UAAU,EAAE,MAAM,GAAG,IAAI,CAAC;CAC3B"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"validationExceptionResponse.d.ts","sourceRoot":"","sources":["../../../src/api-with-base/models/validationExceptionResponse.ts"],"names":[],"mappings":"AAAA;;;;;GAKG;AACH,OAAO,KAAK,EAAE,iCAAiC,EAAE,MAAM,qCAAqC,CAAC;AAE7F,MAAM,MAAM,2BAA2B,GAAG;IACxC,uBAAuB;IACvB,OAAO,EAAE,MAAM,CAAC;IAChB,mEAAmE;IACnE,MAAM,EAAE,iCAAiC,CAAC;CAC3C,CAAC"}
