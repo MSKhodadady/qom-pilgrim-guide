@@ -3,19 +3,19 @@ export const placeAssignmentTypes: Record<
   { per: string; icon: string }
 > = {
   parking: {
-    per: "",
+    per: "پارکینگ",
     icon: "",
   },
   lodging: {
-    per: "",
+    per: "اقامتگاه",
     icon: "",
   },
   transport: {
-    per: "",
+    per: "ایستگاه",
     icon: "",
   },
   hotel: {
-    per: "",
+    per: "هتل",
     icon: "",
   },
 };
