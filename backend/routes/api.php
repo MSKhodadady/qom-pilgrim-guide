@@ -21,9 +21,11 @@ Route::prefix('auth')->group(function () {
     Route::middleware('auth:admin')->get('/me', [AuthController::class, 'me']);
 });
 
-Route::middleware('auth:admin')->group(function () {
-    Route::apiResource('entry-routes', EntryRouteController::class);
-    Route::apiResource('stay-modes', StayModeController::class);
-    Route::apiResource('places', PlaceController::class);
-    Route::apiResource('route-place-assignments', RoutePlaceAssignmentController::class);
-});
+Route::apiResource('entry-routes', EntryRouteController::class)
+    ->middlewareFor(['store', 'update', 'destroy'], 'auth:admin');
+Route::apiResource('stay-modes', StayModeController::class)
+    ->middlewareFor(['store', 'update', 'destroy'], 'auth:admin');
+Route::apiResource('places', PlaceController::class)
+    ->middlewareFor(['store', 'update', 'destroy'], 'auth:admin');
+Route::apiResource('route-place-assignments', RoutePlaceAssignmentController::class)
+    ->middlewareFor(['store', 'update', 'destroy'], 'auth:admin');
