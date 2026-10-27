@@ -15,7 +15,7 @@ export default async function MainPage() {
   const d = entryRoutes.data.data;
 
   return (
-    <main className="mx-auto max-w-6xl pt-12 w-full flex flex-col items-center gap-6 p-1">
+    <>
       <h1 className="flex justify-between items-center border rounded-xl border-slate-300 p-4 w-full">
         <span>شهرداری قم</span>
         <span>سامانه راهنمایی زائر</span>
@@ -42,6 +42,6 @@ export default async function MainPage() {
           </Item>
         ))}
       </div>
-    </main>
+    </>
   );
 }

@@ -19,7 +19,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       dir="rtl"
       className={cn("h-full", "antialiased", "font-sans", font.variable)}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <main className="mx-auto max-w-6xl pt-12 w-full flex flex-col items-center gap-6 p-1">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
