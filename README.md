@@ -1,9 +1,8 @@
 
 
-# install and running
+# Bootstrap and develop project
 
-
-## backend
+## Backend
 
 ### `.env` file
 1. `cp .env.example .env`
@@ -29,13 +28,51 @@ DB_CONNECTION=sqlite
 ```
 
 
-### database
+### Database
 
 1. `php artisan migrate`
 1. `sqlite3 database/database.sqlite < seed_qom.sql`
 
 
-### running
+### Run
 
 `php artisan serve`
+
+
+## Api Sdk
+
+For generating api sdk and using api functions, after each change in backend codes, run this command in main directory:
+```bash
+npm run build --workspace api-sdk
+```
+
+## Frontend
+
+### Development
+
+After running backend, run frontend for development using this command:
+```bash
+npm run dev --workspace frontend
+```
+
+
+# Build project and run in production
+
+## Backend
+
+Create `.env` file as said above, except this one:
+```
+APP_DEBUG=false
+```
+
+## frontend
+
+Run:
+```sh
+npm run build --workspace frontend
+
+npm run start --workspace frontend
+```
+
+
 
