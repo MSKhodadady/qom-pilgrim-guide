@@ -7,10 +7,13 @@
   "type": "commonjs",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev-front": "concurrently --names back,front --prefix-colors blue,green \"php backend/artisan serve\" \"npm run dev --workspace frontend\""
   },
   "workspaces": [
     "api-sdk",
     "frontend"
-  ]
+  ],
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  }
 }

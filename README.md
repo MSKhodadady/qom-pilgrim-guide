@@ -55,6 +55,11 @@ After running backend, run frontend for development using this command:
 npm run dev --workspace frontend
 ```
 
+Or you can run both backend and frontend _just for developing frontend_ by this command:
+```bash
+npm run dev-front
+```
+
 
 # Build project and run in production
 
