@@ -19,7 +19,7 @@ export async function fetchWrap<T extends { status: number }>(
 
   const res = await fn(passedInit);
 
-  if (res.status === 401) {
+  if (res.status == 401) {
     clearAuthToken();
     window.location.href = "/admin/login";
     return null;
