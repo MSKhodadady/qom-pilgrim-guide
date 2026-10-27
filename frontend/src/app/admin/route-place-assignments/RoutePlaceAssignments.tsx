@@ -1,6 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   createColumnHelper,
+  createPaginatedRowModel,
+  rowPaginationFeature,
   tableFeatures,
   useTable,
 } from "@tanstack/react-table";
@@ -30,7 +32,10 @@ import { fetchWrap } from "@/lib/fetchWrap";
 import { useDialog } from "@/lib/hooks/useDialog";
 import { qkeys } from "@/lib/qkeys";
 
-const assignmentFeatures = tableFeatures({});
+const assignmentFeatures = tableFeatures({
+  rowPaginationFeature: rowPaginationFeature,
+  paginatedRowModel: createPaginatedRowModel(),
+});
 const assignmentColumnHelper = createColumnHelper<
   typeof assignmentFeatures,
   RoutePlaceAssignment
@@ -290,6 +295,7 @@ export function RoutePlaceAssignments() {
                 ? "در حال دریافت تخصیص‌ها..."
                 : "تخصیصی ثبت نشده است."
             }
+            pagination={table}
           />
         </CardContent>
       </Card>
