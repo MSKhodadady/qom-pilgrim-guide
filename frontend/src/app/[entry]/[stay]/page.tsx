@@ -1,3 +1,5 @@
+import { Location04Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { routePlaceAssignmentsIndex } from "api-sdk/api-with-base";
 import type {
   EntryRoute,
@@ -6,7 +8,7 @@ import type {
   StayMode,
 } from "api-sdk/models";
 import Link from "next/link";
-import { Suspense } from "react";
+import { type ReactNode, Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Item,
@@ -57,10 +59,17 @@ export async function EntryRouteRender(P: {
       },
       {} as Record<string, RoutePlaceAssignmentFull[]>,
     ),
-  ).map<[string, RoutePlaceAssignmentFull[]]>(([k, v]) => [
-    placeAssignmentTypes[k]?.per ?? k,
-    v,
-  ]);
+  ).map<[{ title: string; icon: ReactNode }, RoutePlaceAssignmentFull[]]>(
+    ([k, v]) => [
+      {
+        title: placeAssignmentTypes[k]?.per ?? k,
+        icon: placeAssignmentTypes[k].icon ?? (
+          <HugeiconsIcon icon={Location04Icon} />
+        ),
+      },
+      v,
+    ],
+  );
 
   return (
     <div className="w-full flex flex-col gap-6 items-center">
@@ -75,10 +84,14 @@ export async function EntryRouteRender(P: {
       </h1>
       {roleGrouped.map(([k, v]) => (
         <div
-          key={k}
+          key={k.title}
           className="w-full max-w-2xl flex flex-col gap-3 items-center"
         >
-          <h1 className="w-full text-start font-bold text-xl">{k}</h1>
+          <h1 className="w-full text-start font-bold text-xl flex justify-between items-center">
+            <span>{k.title}</span>
+
+            {k.icon}
+          </h1>
 
           {v.map((i) => (
             <Item variant="outline" key={i.id} className="w-full">
