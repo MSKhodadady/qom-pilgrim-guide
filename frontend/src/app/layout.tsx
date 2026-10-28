@@ -48,12 +48,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <div className="w-full h-full p-2">
           <main className="mx-auto max-w-6xl py-12 w-full flex flex-col items-center gap-6 bg-white/90 rounded-xl px-2  backdrop-blur-md">
-            <header className="flex justify-between items-center border rounded-xl border-slate-300 p-4 w-full">
+            <header className="flex flex-col-reverse items-center gap-2 md:flex-row md:justify-between md:items-center border rounded-xl border-slate-300 p-4 w-full">
               <Link href={"/"}>
                 <span className="text-3xl">سامانه راهنمایی زائر</span>
               </Link>
               <Link href="https://www.qom.ir" target="_blank">
-                <Image src={logo} alt="logo" className="h-14 w-auto" />
+                <Image src={logo} alt="logo" className="h-8 md:h-14 w-auto" />
               </Link>
             </header>
 
