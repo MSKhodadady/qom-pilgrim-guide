@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
+import background from "../assets/background.jpg";
 import logo from "../assets/logo-with-text.png";
 
 const font = Vazirmatn({
@@ -40,17 +41,25 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className="min-h-full flex flex-col">
-        <main className="mx-auto max-w-6xl pt-12 w-full flex flex-col items-center gap-6 p-1">
-          <header className="flex justify-between items-center border rounded-xl border-slate-300 p-4 w-full">
-            <Link href={"/"}>
-              <span className="text-3xl">سامانه راهنمایی زائر</span>
-            </Link>
-            <Link href="https://www.qom.ir" target="_blank">
-              <Image src={logo} alt="logo" className="h-14 w-auto" />
-            </Link>
-          </header>
-          {children}
-        </main>
+        <Image
+          src={background}
+          alt="background"
+          className="fixed min-h-screen h-full w-full object-cover -z-10"
+        />
+        <div className="w-full h-full p-2">
+          <main className="mx-auto max-w-6xl py-12 w-full flex flex-col items-center gap-6 bg-white/90 rounded-xl px-2  backdrop-blur-md">
+            <header className="flex justify-between items-center border rounded-xl border-slate-300 p-4 w-full">
+              <Link href={"/"}>
+                <span className="text-3xl">سامانه راهنمایی زائر</span>
+              </Link>
+              <Link href="https://www.qom.ir" target="_blank">
+                <Image src={logo} alt="logo" className="h-14 w-auto" />
+              </Link>
+            </header>
+
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );
